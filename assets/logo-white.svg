@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 70" width="280" height="70" aria-label="Lumina Cleaning Services Logo">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;display=swap');
+      .logo-text-serif-white {
+        font-family: 'Playfair Display', 'Bodoni MT', 'Didot', 'Georgia', serif;
+        font-size: 52px;
+        font-weight: 700;
+        fill: #FFFFFF;
+        letter-spacing: -0.5px;
+      }
+      .star-gold {
+        fill: #E5B842;
+      }
+    </style>
+  </defs>
+
+  <!-- Lumina Brand Text White -->
+  <text x="5" y="52" class="logo-text-serif-white">Lumina</text>
+
+  <!-- Golden 4-point sparkle star above the 'a' -->
+  <path class="star-gold" d="M 218,12 C 220,18 221,22 227,24 C 221,26 220,30 218,36 C 216,30 215,26 209,24 C 215,22 216,18 218,12 Z" />
+</svg>
