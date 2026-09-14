@@ -1217,6 +1217,84 @@ img {
   line-height: 1.5;
 }
 
+/* Service Card Pricing & Discount Styles */
+.service-discount-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 6;
+}
+
+.service-price-block {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed rgba(55, 71, 40, 0.18);
+}
+
+.service-price-current {
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+
+.service-price-current .price-unit {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.service-price-old {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #8C9385;
+  text-decoration: line-through;
+}
+
+.btn-card-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  margin-top: 1rem;
+  background-color: #25D366;
+  color: #FFFFFF;
+  border-radius: 50px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-card-whatsapp:hover {
+  background-color: #20BA5A;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+}
+
 .cta-banner-section {
   margin-bottom: 6rem;
 }
@@ -3309,5 +3387,180 @@ img {
   }
 }
 
+/* ==========================================
+   DEAL OF THE DAY SECTION
+   ========================================== */
+.promotions-section {
+  padding: 5rem 0;
+  background-color: #F7F4EE;
+  position: relative;
+}
 
+.deal-of-day-banner {
+  max-width: 1060px;
+  margin: 0 auto;
+  background-color: #FAF7F2;
+  border-radius: 24px;
+  border: 1px solid #E4DCD0;
+  box-shadow: 0 12px 36px rgba(53, 69, 39, 0.07);
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.deal-of-day-banner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 48px rgba(53, 69, 39, 0.12);
+}
+
+.deal-banner-image-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 380px;
+  overflow: hidden;
+}
+
+.deal-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.deal-of-day-banner:hover .deal-banner-img {
+  transform: scale(1.04);
+}
+
+.deal-discount-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: var(--color-primary, #354527);
+  color: #FFFFFF;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 50px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.05em;
+  z-index: 2;
+}
+
+.deal-banner-content {
+  padding: 3rem 3rem 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.deal-tag-row {
+  margin-bottom: 0.75rem;
+}
+
+.deal-eyebrow-tag {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7A876E;
+}
+
+.deal-banner-title {
+  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+  font-size: clamp(1.85rem, 3vw, 2.4rem);
+  font-weight: 600;
+  color: var(--color-text-dark, #20241D);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.deal-banner-desc {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.95rem;
+  color: #555E4E;
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
+
+.deal-price-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem 1.25rem;
+  background-color: rgba(122, 135, 110, 0.08);
+  border-radius: 14px;
+  width: fit-content;
+}
+
+.deal-price-current {
+  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-primary, #354527);
+  line-height: 1;
+}
+
+.deal-price-old {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.2rem;
+  color: #8C9683;
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.deal-savings-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #2D5A27;
+  background-color: #E2F0DE;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.btn-deal-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: #25D366;
+  color: #FFFFFF;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  width: fit-content;
+}
+
+.btn-deal-whatsapp:hover {
+  background-color: #1DA851;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(37, 211, 102, 0.4);
+}
+
+@media (max-width: 868px) {
+  .deal-of-day-banner {
+    grid-template-columns: 1fr;
+  }
+  .deal-banner-image-wrap {
+    min-height: 260px;
+    height: 260px;
+  }
+  .deal-banner-content {
+    padding: 2rem 1.75rem;
+  }
+  .btn-deal-whatsapp {
+    width: 100%;
+  }
+}
 
