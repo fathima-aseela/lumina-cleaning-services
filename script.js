@@ -248,7 +248,7 @@ function toggleFullBlogPost() {
 
 // Open Direct WhatsApp Chat
 function openWhatsAppChat(customText) {
-  const phone = '971565671843';
+  const phone = '971586477660';
   const message = customText ? encodeURIComponent(customText) : encodeURIComponent("Hello Lumina Cleaning Services! I would like to inquire about booking a cleaning service.");
   const waUrl = `https://wa.me/${phone}?text=${message}`;
   window.open(waUrl, '_blank');
