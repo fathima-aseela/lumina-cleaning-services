@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deal of the Day & Promotions - Lumina Cleaning Services</title>
+  <meta name="description"
+    content="Exclusive deals and promotional discounts on professional cleaning services in Dubai by Lumina Cleaning Services. Book today on WhatsApp for special savings.">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="shortcut icon" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ==========================================
+       HEADER & NAVIGATION BAR
+       ========================================== -->
+  <header class="header" id="header">
+    <div class="header-container">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="logo" id="brand-logo" aria-label="Lumina Cleaning Services Home">
+        <img src="assets/logo.png" alt="Lumina Cleaning Services Logo" class="brand-logo-img">
+      </a>
+
+      <!-- Navigation Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link" id="nav-home">HOME</a></li>
+          <li><a href="about.html" class="nav-link" id="nav-about">ABOUT US</a></li>
+          <li><a href="services.html" class="nav-link" id="nav-services">SERVICES</a></li>
+          <li><a href="deal-of-the-day.html" class="nav-link active" id="nav-deal">DEAL OF THE DAY</a></li>
+          <li><a href="why-lumina.html" class="nav-link" id="nav-whyus">WHY LUMINA</a></li>
+          <li><a href="blog.html" class="nav-link" id="nav-blog">BLOG</a></li>
+          <li><a href="contact.html" class="nav-link" id="nav-contact">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action CTA Button -->
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <a href="contact.html" class="btn-header-cta" id="btn-header-book">
+          <span>BOOK A CLEANING</span>
+          <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 1L13 6M13 6L8 11M13 6H1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+
+        <!-- Mobile Toggle Button -->
+        <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Top Header Wave Divider -->
+  <div class="header-wave-divider">
+    <svg viewBox="0 0 1440 28" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0C240 22 480 28 720 18C960 8 1200 24 1440 12V28H0V0Z" fill="#FAF8F5" />
+    </svg>
+  </div>
+
+  <!-- ==========================================
+       SECTION: DEAL OF THE DAY
+       ========================================== -->
+  <section id="promotions" class="promotions-section" style="padding-top: 3rem; padding-bottom: 5rem;">
+    <div class="section-container">
+
+      <!-- SECTION HEADER -->
+      <div class="section-header-center">
+        <span class="section-eyebrow">EXCLUSIVE OFFER</span>
+        <h2 class="section-title-main">DEAL OF THE DAY</h2>
+        <div class="leaf-divider">
+          <div class="leaf-divider-line"></div>
+          <svg class="leaf-divider-svg" viewBox="0 0 24 16" fill="currentColor">
+            <path d="M12 0C6 4 2 9 0 16c5-2 10-6 12-16zm0 0c6 4 10 9 12 16-5-2-10-6-12-16z" />
+          </svg>
+          <div class="leaf-divider-line"></div>
+        </div>
+        <p class="section-subtitle-main"
+          style="max-width: 600px; margin: 1rem auto 0 auto; color: #555E4E; font-size: 1rem; line-height: 1.6;">
+          Limited-time promotion &mdash; claim your special discount on WhatsApp today!
+        </p>
+      </div>
+
+      <!-- FEATURED DEAL OF THE DAY BANNER -->
+      <div class="deal-of-day-banner">
+        <div class="deal-banner-image-wrap">
+          <img src="assets/service_sofa_upholstery.jpg" alt="Sofa & Upholstery Cleaning" class="deal-banner-img" />
+          <span class="deal-discount-badge">50% OFF</span>
+        </div>
+
+        <div class="deal-banner-content">
+          <div class="deal-tag-row">
+            <span class="deal-eyebrow-tag">TODAY'S FEATURED DEAL</span>
+          </div>
+
+          <h3 class="deal-banner-title">Sofa &amp; Upholstery Deep Steam Clean</h3>
+
+          <p class="deal-banner-desc">
+            Deep steam sanitization and stain removal for sofas, armchairs, and dining chairs. Restores fabric freshness and eliminates allergens.
+          </p>
+
+          <div class="deal-price-wrapper">
+            <span class="deal-price-current">AED 100</span>
+            <span class="deal-price-old">AED 200</span>
+            <span class="deal-savings-pill">Save 50% Today</span>
+          </div>
+
+          <button class="btn-deal-whatsapp"
+            onclick="openWhatsAppChat('Hi Lumina, I would like to book today\'s Deal of the Day - Sofa & Upholstery for AED 100. Please confirm availability.')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.764.459 3.487 1.333 5.006l-1.417 5.176 5.297-1.389c1.472.802 3.136 1.224 4.774 1.225h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.668-1.039-5.176-2.927-7.062a9.923 9.923 0 0 0-7.062-2.955zm0 1.636c4.604 0 8.35 3.746 8.351 8.35 0 2.233-.869 4.332-2.449 5.91-1.579 1.58-3.679 2.45-5.904 2.45h-.003c-1.458 0-2.888-.382-4.148-1.107l-.297-.171-3.085.808.823-3.007-.188-.3a8.318 8.318 0 0 1-1.272-4.382c.001-4.604 3.748-8.351 8.352-8.351z" />
+            </svg>
+            <span>BOOK THIS DEAL ON WHATSAPP</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- MORE SPECIAL PROMOTIONS GRID -->
+      <div style="margin-top: 4rem;">
+        <div class="section-header-center" style="margin-bottom: 2.5rem;">
+          <h3 style="font-family: var(--font-serif); font-size: 2rem; color: #20241D;">More Limited-Time Offers</h3>
+        </div>
+
+        <div class="services-octo-grid">
+          <!-- Deal 1 -->
+          <div class="service-badge-card">
+            <div class="badge-card-image-wrap">
+              <img src="assets/service_deep_cleaning.jpg" alt="Residential Deep Clean" class="badge-card-img" />
+              <span class="service-discount-badge">50% OFF</span>
+            </div>
+            <div class="badge-card-body">
+              <div>
+                <h3 class="badge-card-title">Residential Deep Clean</h3>
+                <p class="badge-card-desc">Thorough floor-to-ceiling clean for your villa or apartment.</p>
+              </div>
+              <div>
+                <div class="service-price-block">
+                  <span class="service-price-current">AED 175</span>
+                  <span class="service-price-old">AED 350</span>
+                </div>
+                <button class="btn-card-whatsapp"
+                  onclick="openWhatsAppChat('Hi Lumina, I would like to book Residential Deep Clean offer at AED 175!')">
+                  <span>Book on WhatsApp</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deal 2 -->
+          <div class="service-badge-card">
+            <div class="badge-card-image-wrap">
+              <img src="assets/detail_bathrooms.jpg" alt="Kitchen & Bathroom Combo" class="badge-card-img" />
+              <span class="service-discount-badge">50% OFF</span>
+            </div>
+            <div class="badge-card-body">
+              <div>
+                <h3 class="badge-card-title">Kitchen & Bathroom Combo</h3>
+                <p class="badge-card-desc">Comprehensive grease removal & bathroom sanitization bundle.</p>
+              </div>
+              <div>
+                <div class="service-price-block">
+                  <span class="service-price-current">AED 150</span>
+                  <span class="service-price-old">AED 300</span>
+                </div>
+                <button class="btn-card-whatsapp"
+                  onclick="openWhatsAppChat('Hi Lumina, I would like to book Kitchen & Bathroom Combo deal at AED 150!')">
+                  <span>Book on WhatsApp</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deal 3 -->
+          <div class="service-badge-card">
+            <div class="badge-card-image-wrap">
+              <img src="assets/service_move_in.jpg" alt="Move-In / Move-Out Special" class="badge-card-img" />
+              <span class="service-discount-badge">30% OFF</span>
+            </div>
+            <div class="badge-card-body">
+              <div>
+                <h3 class="badge-card-title">Move-In / Move-Out Special</h3>
+                <p class="badge-card-desc">Complete handover deep clean for tenants & homeowners.</p>
+              </div>
+              <div>
+                <div class="service-price-block">
+                  <span class="service-price-current">AED 350</span>
+                  <span class="service-price-old">AED 500</span>
+                </div>
+                <button class="btn-card-whatsapp"
+                  onclick="openWhatsAppChat('Hi Lumina, I would like to book Move-In / Move-Out special at AED 350!')">
+                  <span>Book on WhatsApp</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOW OUR DEALS WORK -->
+      <div style="margin-top: 5rem; background: #F3ECE2; border-radius: 24px; padding: 3.5rem 2.5rem; border: 1px solid #E8E0D2;">
+        <div class="section-header-center" style="margin-bottom: 2.5rem;">
+          <span class="section-eyebrow">SIMPLE & TRANSPARENT</span>
+          <h2 class="section-title-main" style="font-size: 2.2rem;">How Our Deals Work</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; text-align: center;">
+          <div>
+            <div style="width: 54px; height: 54px; border-radius: 50%; background: #374728; color: #FFF; font-weight: 700; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto;">1</div>
+            <h4 style="font-family: var(--font-serif); font-size: 1.2rem; color: #20241D; margin-bottom: 0.5rem;">Pick Your Deal</h4>
+            <p style="font-size: 0.9rem; color: #646E5D; line-height: 1.6;">Browse our active Deal of the Day and promotional discount packages.</p>
+          </div>
+
+          <div>
+            <div style="width: 54px; height: 54px; border-radius: 50%; background: #374728; color: #FFF; font-weight: 700; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto;">2</div>
+            <h4 style="font-family: var(--font-serif); font-size: 1.2rem; color: #20241D; margin-bottom: 0.5rem;">Click WhatsApp</h4>
+            <p style="font-size: 0.9rem; color: #646E5D; line-height: 1.6;">Message us directly on WhatsApp with your preferred date & area.</p>
+          </div>
+
+          <div>
+            <div style="width: 54px; height: 54px; border-radius: 50%; background: #374728; color: #FFF; font-weight: 700; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto;">3</div>
+            <h4 style="font-family: var(--font-serif); font-size: 1.2rem; color: #20241D; margin-bottom: 0.5rem;">Enjoy Sparkling Clean</h4>
+            <p style="font-size: 0.9rem; color: #646E5D; line-height: 1.6;">No upfront online payment required — pay after service completion!</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner-section" style="padding-bottom: 4rem;">
+    <div class="section-container">
+      <div class="cta-banner-card">
+        <div class="cta-banner-left">
+          <h2 class="cta-banner-title">
+            Don't Miss Out on<br>
+            Today's Deals!
+          </h2>
+          <div class="short-line-divider" style="background-color: rgba(255,255,255,0.4); margin: 1.25rem 0;"></div>
+          <p class="cta-banner-desc">
+            Book your discounted cleaning service today on WhatsApp and enjoy a pristine clean home.
+          </p>
+          <a href="contact.html" class="btn-white-cta">
+            BOOK A CLEANING &rarr;
+          </a>
+        </div>
+        <div class="cta-banner-right">
+          <img src="assets/about_hero_decor.jpg" alt="Aesthetic clean home space" class="cta-banner-img" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="footer" style="background-color: #374728; color: #FFF; padding: 4rem 2.5rem 2rem 2.5rem;">
+    <div style="max-width: 1280px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1.25fr 1fr 2fr; gap: 2.5rem; margin-bottom: 3.5rem;">
+        <div>
+          <a href="index.html" class="footer-logo" aria-label="Lumina Cleaning Services Home"
+            style="display: block; margin-bottom: 1.25rem;">
+            <img src="assets/logo-white.png" alt="Lumina Cleaning Services Logo" class="brand-footer-logo-img">
+          </a>
+          <p style="font-size: 0.875rem; color: rgba(255,255,255,0.75); line-height: 1.6; margin-bottom: 1.5rem;">
+            We deliver exceptional cleaning services that enhance lives, create healthier spaces, and bring peace of mind to every home and business.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.25rem;">Quick Links</h4>
+          <ul
+            style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.875rem; color: rgba(255,255,255,0.8);">
+            <li><a href="index.html" style="color: #FFF;">Home</a></li>
+            <li><a href="about.html" style="color: #FFF;">About Us</a></li>
+            <li><a href="services.html" style="color: #FFF;">Our Services</a></li>
+            <li><a href="deal-of-the-day.html" style="color: #FFF;">Deal of the Day</a></li>
+            <li><a href="why-lumina.html" style="color: #FFF;">Why Lumina</a></li>
+            <li><a href="blog.html" style="color: #FFF;">Blog</a></li>
+            <li><a href="contact.html" style="color: #FFF;">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.25rem;">Our Services</h4>
+          <ul
+            style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.875rem; color: rgba(255,255,255,0.8);">
+            <li><a href="services.html" style="color: #FFF;">Residential Cleaning</a></li>
+            <li><a href="services.html" style="color: #FFF;">Deep Cleaning</a></li>
+            <li><a href="services.html" style="color: #FFF;">Move-In / Move-Out</a></li>
+            <li><a href="services.html" style="color: #FFF;">Office Cleaning</a></li>
+            <li><a href="services.html" style="color: #FFF;">Sofa & Upholstery</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.25rem;">Contact Us</h4>
+          <ul
+            style="list-style: none; display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.875rem; color: rgba(255,255,255,0.8);">
+            <li>📞 +971 58 647 7660</li>
+            <li>✉️ luminaclean.ae@gmail.com</li>
+            <li>📍 All Areas · Dubai, UAE</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.25rem;">Newsletter</h4>
+          <p style="font-size: 0.8125rem; color: rgba(255,255,255,0.75); margin-bottom: 1rem;">
+            Subscribe for cleaning tips, updates, and exclusive offers.
+          </p>
+          <form onsubmit="event.preventDefault(); alert('Thank you for subscribing to Lumina newsletter!');"
+            style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <input type="email" placeholder="Your email address" required
+              style="padding: 0.75rem 1rem; border-radius: 6px; border: none; font-size: 0.875rem; outline: none;">
+            <button type="submit"
+              style="padding: 0.75rem 1rem; background-color: #20241D; color: #FFF; border-radius: 6px; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;">SUBSCRIBE</button>
+          </form>
+        </div>
+      </div>
+
+      <div
+        style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8125rem; color: rgba(255,255,255,0.65);">
+        <span>&copy; 2026 Lumina Cleaning Services. All rights reserved.</span>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#" style="color: rgba(255,255,255,0.65);">Privacy Policy</a>
+          <a href="#" style="color: rgba(255,255,255,0.65);">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div class="modal-backdrop" id="booking-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close modal">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M1 1L13 13M1 13L13 1" />
+        </svg>
+      </button>
+
+      <div style="text-align: center; margin-bottom: 0.75rem;">
+        <img src="assets/logo.png" alt="Lumina Cleaning Services"
+          style="height: 38px; width: auto; display: inline-block;">
+      </div>
+      <h3 class="modal-title" id="modal-title-text" style="margin-top: 0.25rem;">Book Lumina Service</h3>
+      <p class="modal-subtitle">Experience a spotless, serene environment. Select your preferred date.</p>
+
+      <form id="booking-form" onsubmit="event.preventDefault(); handleBookingSubmit();">
+        <div class="form-group">
+          <label class="form-label" for="client-name">Your Full Name</label>
+          <input type="text" id="client-name" class="form-input" placeholder="e.g. Sarah Jenkins" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="client-email">Email Address</label>
+          <input type="email" id="client-email" class="form-input" placeholder="sarah@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="service-type">Service Type</label>
+          <select id="service-type" class="form-select">
+            <option value="deep">Deep Cleaning</option>
+            <option value="home">Home Cleaning</option>
+            <option value="upholstery">Sofa & Upholstery</option>
+            <option value="move-in">Move-In Cleaning</option>
+            <option value="carpet">Carpet Cleaning</option>
+            <option value="bathroom">Bathroom Cleaning</option>
+            <option value="kitchen">Kitchen Cleaning</option>
+            <option value="office">Office Cleaning</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-submit-modal">CONFIRM RESERVATION &rarr;</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <div class="whatsapp-float-widget">
+    <div class="whatsapp-float-tooltip">
+      <span class="whatsapp-tooltip-dot"></span>
+      <span>Chat with Lumina (+971 58 647 7660)</span>
+    </div>
+    <a href="https://wa.me/971586477660" target="_blank" rel="noopener noreferrer" class="whatsapp-float-btn"
+      aria-label="Chat on WhatsApp">
+      <div class="whatsapp-pulse-ring"></div>
+      <svg width="34" height="34" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M16 3C8.82 3 3 8.82 3 16c0 2.76.86 5.31 2.33 7.42L3.5 28.5l5.24-1.78A12.93 12.93 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3z"
+          fill="#FFFFFF" />
+        <path
+          d="M22.5 19.86c-.32-.16-1.88-.93-2.17-1.03-.29-.11-.5-.16-.71.16-.21.32-.82 1.03-1.01 1.24-.19.21-.37.24-.69.08-.32-.16-1.34-.49-2.56-1.58-.95-.84-1.59-1.88-1.78-2.2-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.72-.98-2.36-.26-.62-.52-.54-.71-.55-.19-.01-.4-.01-.61-.01s-.56.08-.85.4c-.29.32-1.11 1.09-1.11 2.65s1.14 3.07 1.3 3.29c.16.21 2.21 3.52 5.44 4.79.77.3 1.37.48 1.84.62.77.24 1.48.2 2.03.12.62-.09 1.91-.78 2.17-1.53.26-.75.26-1.4.19-1.53-.08-.13-.29-.21-.61-.37z"
+          fill="#25D366" />
+      </svg>
+    </a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

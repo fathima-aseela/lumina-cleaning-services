@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LUMINA CLEANING SERVICES - SINGLE-PAGE SCROLLING SCRIPT
+   LUMINA CLEANING SERVICES - MULTI-PAGE WEBSITE SCRIPT
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ScrollSpy: Update active nav link indicator as user scrolls vertically
+  // Optional intra-page hash scrollspy for section hash links
   const sections = document.querySelectorAll('section[id], footer[id]');
 
   window.addEventListener('scroll', () => {
