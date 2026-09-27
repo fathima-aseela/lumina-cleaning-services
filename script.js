@@ -51,23 +51,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Booking Modal Dialog Logic
-  const bookingModal = document.getElementById('booking-modal');
-  const modalCloseBtn = document.getElementById('modal-close-btn');
-
-  if (modalCloseBtn && bookingModal) {
-    modalCloseBtn.addEventListener('click', () => {
-      bookingModal.classList.remove('active');
-    });
-  }
-
-  if (bookingModal) {
-    bookingModal.addEventListener('click', (e) => {
-      if (e.target === bookingModal) {
-        bookingModal.classList.remove('active');
+  // Service Details Modal Backdrop Click Listener
+  const serviceDetailsModal = document.getElementById('service-details-modal');
+  if (serviceDetailsModal) {
+    serviceDetailsModal.addEventListener('click', (e) => {
+      if (e.target === serviceDetailsModal) {
+        closeServiceDetailsModal();
       }
     });
   }
+
+  // Corner Details Modal Backdrop Click Listener
+  const cornerDetailsModal = document.getElementById('corner-details-modal');
+  if (cornerDetailsModal) {
+    cornerDetailsModal.addEventListener('click', (e) => {
+      if (e.target === cornerDetailsModal) {
+        closeCornerDetailModal();
+      }
+    });
+  }
+
+  // Keyboard escape key listener for all modals
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeCornerDetailModal();
+      closeServiceDetailsModal();
+      const bookingModal = document.getElementById('booking-modal');
+      if (bookingModal) bookingModal.classList.remove('active');
+    }
+  });
 
   // FAQ Accordion Interactivity
   const faqItems = document.querySelectorAll('.faq-item');
@@ -125,28 +137,310 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// Function to open Service Details Modal (Popular Services on Home Page)
+function openServiceDetailsModal(serviceType) {
+  const modal = document.getElementById('service-details-modal');
+  const titleElem = document.getElementById('details-modal-title');
+  const eyebrowElem = document.getElementById('details-modal-eyebrow');
+  const descElem = document.getElementById('details-modal-desc');
+  const bodyElem = document.getElementById('details-modal-body');
+
+  if (!modal || !titleElem || !descElem || !bodyElem) return;
+
+  if (serviceType === 'deep-cleaning') {
+    if (eyebrowElem) eyebrowElem.textContent = 'TOP-TO-BOTTOM RESTORATION';
+    titleElem.textContent = 'Deep Cleaning Services';
+    descElem.textContent = 'Thorough deep-extraction, sanitisation, polishing, and technical care for homes and offices. Deep cleaning targets hidden dust, grime, grease, and allergens in hard-to-reach areas using specialized equipment and eco-friendly products.';
+    
+    bodyElem.innerHTML = `
+      <div style="margin-top: 1rem;">
+        <span style="font-size: 0.8125rem; font-weight: 700; color: #374728; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">11 Specialized Deep Cleaning Services:</span>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.6rem;">
+          <div style="background: #F4F1EA; padding: 0.75rem 0.85rem; border-radius: 10px; border: 1px solid #E2DCCF;">
+            <strong style="display: block; font-size: 0.875rem; color: #20241D; margin-bottom: 0.2rem;">1. Carpet & Rug Cleaning</strong>
+            <span style="font-size: 0.8125rem; color: #646E5D; line-height: 1.4; display: block;">Deep-extraction that lifts stains and odours.</span>
+          </div>
+          <div style="background: #F4F1EA; padding: 0.75rem 0.85rem; border-radius: 10px; border: 1px solid #E2DCCF;">
+            <strong style="display: block; font-size: 0.875rem; color: #20241D; margin-bottom: 0.2rem;">2. Sofa & Upholstery</strong>
+            <span style="font-size: 0.8125rem; color: #646E5D; line-height: 1.4; display: block;">Fabric-safe deep shampoo — like new again.</span>
+          </div>
+          <div style="background: #F4F1EA; padding: 0.75rem 0.85rem; border-radius: 10px; border: 1px solid #E2DCCF;">
+            <strong style="display: block; font-size: 0.875rem; color: #20241D; margin-bottom: 0.2rem;">3. Mattress Deep Clean</strong>
+            <span style="font-size: 0.8125rem; color: #646E5D; line-height: 1.4; display: block;">Dust-mite and allergen treatment, both sides.</span>
+          </div>
+          <div style="background: #F4F1EA; padding: 0.75rem 0.85rem; border-radius: 10px; border: 1px solid #E2DCCF;">
+            <strong style="display: block; font-size: 0.875rem; color: #20241D; margin-bottom: 0.2rem;">4. Curtains & Drapery</strong>
+            <span style="font-size: 0.8125rem; color: #646E5D; line-height: 1.4; display: block;">On-site or off-site cleaning for all fabrics.</span>
+          </div>
+          <div style="background: #F4F1EA; padding: 0.75rem 0.85rem; border-radius: 10px; border: 1px solid #E2DCCF;">
+            <strong style="display: block; font-size: 0.875rem; color: #20241D; margin-bottom: 0.2rem;">5. Window & Glass</strong>
+            <span style="font-size: 0.8125rem; color: #646E5D; line-height: 1.4; display: block;">Streak-free interior and reachable exterior glass.</span>
+          </div>
+          <div style="background: #F4F1EA; padding: 0.75rem 0.85rem; border-radius: 10px; border: 1px solid #E2DCCF;">
+            <strong style="display: block; font-size: 0.875rem; color: #20241D; margin-bottom: 0.2rem;">6. Floor & Marble Polishing</strong>
+            <span style="font-size: 0.8125rem; color: #646E5D; line-height: 1.4; display: block;">Grinding, polishing and sealing for stone floors.</span>
+          </div>
+          <div style="background: #F4F1EA; padding: 0.75rem 0.85rem; border-radius: 10px; border: 1px solid #E2DCCF;">
+            <strong style="display: block; font-size: 0.875rem; color: #20241D; margin-bottom: 0.2rem;">7. AC Duct Cleaning</strong>
+            <span style="font-size: 0.8125rem; color: #646E5D; line-height: 1.4; display: block;">Cleaner air and a healthier, fresher home.</span>
+          </div>
+          <div style="background: #F4F1EA; padding: 0.75rem 0.85rem; border-radius: 10px; border: 1px solid #E2DCCF;">
+            <strong style="display: block; font-size: 0.875rem; color: #20241D; margin-bottom: 0.2rem;">8. Water Tank Cleaning</strong>
+            <span style="font-size: 0.8125rem; color: #646E5D; line-height: 1.4; display: block;">Drain, scrub, disinfect and certify.</span>
+          </div>
+          <div style="background: #F4F1EA; padding: 0.75rem 0.85rem; border-radius: 10px; border: 1px solid #E2DCCF;">
+            <strong style="display: block; font-size: 0.875rem; color: #20241D; margin-bottom: 0.2rem;">9. Disinfection & Sanitisation</strong>
+            <span style="font-size: 0.8125rem; color: #646E5D; line-height: 1.4; display: block;">Hospital-grade fogging for homes and offices.</span>
+          </div>
+          <div style="background: #F4F1EA; padding: 0.75rem 0.85rem; border-radius: 10px; border: 1px solid #E2DCCF;">
+            <strong style="display: block; font-size: 0.875rem; color: #20241D; margin-bottom: 0.2rem;">10. Pest Control</strong>
+            <span style="font-size: 0.8125rem; color: #646E5D; line-height: 1.4; display: block;">Safe, certified treatment for common pests.</span>
+          </div>
+          <div style="background: #F4F1EA; padding: 0.75rem 0.85rem; border-radius: 10px; border: 1px solid #E2DCCF;">
+            <strong style="display: block; font-size: 0.875rem; color: #20241D; margin-bottom: 0.2rem;">11. Post-Construction Clean</strong>
+            <span style="font-size: 0.8125rem; color: #646E5D; line-height: 1.4; display: block;">Fine-dust removal and detailing after a build.</span>
+          </div>
+        </div>
+      </div>
+    `;
+  } else if (serviceType === 'home-cleaning') {
+    if (eyebrowElem) eyebrowElem.textContent = 'REGULAR HOME MAINTENANCE';
+    titleElem.textContent = 'Regular Home Cleaning';
+    descElem.textContent = 'Regular Home Cleaning is suitable for ongoing regular home maintenance and can be scheduled according to your specific needs — weekly, fortnightly, or one-off.';
+    
+    bodyElem.innerHTML = `
+      <div style="margin-top: 1rem;">
+        <span style="font-size: 0.8125rem; font-weight: 700; color: #374728; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">Available Property Sizes:</span>
+        <div class="property-size-grid">
+          <div style="background: #F4F1EA; border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.5rem; text-align: center; font-weight: 700; color: #20241D; font-size: 0.875rem;">Studio</div>
+          <div style="background: #F4F1EA; border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.5rem; text-align: center; font-weight: 700; color: #20241D; font-size: 0.875rem;">1 BHK</div>
+          <div style="background: #F4F1EA; border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.5rem; text-align: center; font-weight: 700; color: #20241D; font-size: 0.875rem;">2 BHK</div>
+          <div style="background: #F4F1EA; border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.5rem; text-align: center; font-weight: 700; color: #20241D; font-size: 0.875rem;">3 BHK</div>
+          <div style="background: #F4F1EA; border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.5rem; text-align: center; font-weight: 700; color: #20241D; font-size: 0.875rem;">4 BHK</div>
+          <div style="background: #F4F1EA; border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.5rem; text-align: center; font-weight: 700; color: #20241D; font-size: 0.875rem;">Villa / Other</div>
+        </div>
+      </div>
+    `;
+  } else if (serviceType === 'sofa-upholstery') {
+    if (eyebrowElem) eyebrowElem.textContent = 'FABRIC-SAFE SHAMPOO CARE';
+    titleElem.textContent = 'Sofa & Upholstery Cleaning';
+    descElem.textContent = 'Our Sofa & Upholstery cleaning service provides fabric-safe deep shampoo cleaning to lift stubborn stains, trapped dust, allergens, and odours while preserving upholstery texture.';
+    
+    bodyElem.innerHTML = `
+      <div style="margin-top: 1rem;">
+        <span style="font-size: 0.8125rem; font-weight: 700; color: #374728; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">Available Sofa Types:</span>
+        <div class="property-size-grid">
+          <div style="background: #F4F1EA; border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.75rem 0.5rem; text-align: center; font-weight: 700; color: #20241D; font-size: 0.8125rem;">1 Seater</div>
+          <div style="background: #F4F1EA; border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.75rem 0.5rem; text-align: center; font-weight: 700; color: #20241D; font-size: 0.8125rem;">2 Seater</div>
+          <div style="background: #F4F1EA; border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.75rem 0.5rem; text-align: center; font-weight: 700; color: #20241D; font-size: 0.8125rem;">3 Seater</div>
+          <div style="background: #F4F1EA; border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.75rem 0.5rem; text-align: center; font-weight: 700; color: #20241D; font-size: 0.8125rem;">4 Seater</div>
+          <div style="background: #F4F1EA; border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.75rem 0.5rem; text-align: center; font-weight: 700; color: #20241D; font-size: 0.8125rem;">L-Shaped</div>
+          <div style="background: #F4F1EA; border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.75rem 0.5rem; text-align: center; font-weight: 700; color: #20241D; font-size: 0.8125rem;">U-Shaped</div>
+          <div style="background: #F4F1EA; border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.75rem 0.5rem; text-align: center; font-weight: 700; color: #20241D; font-size: 0.8125rem;">Recliner</div>
+          <div style="background: #F4F1EA; border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.75rem 0.5rem; text-align: center; font-weight: 700; color: #20241D; font-size: 0.8125rem;">Sofa Bed</div>
+          <div style="background: #F4F1EA; border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.75rem 0.5rem; text-align: center; font-weight: 700; color: #20241D; font-size: 0.8125rem;">Other</div>
+        </div>
+      </div>
+    `;
+  } else if (serviceType === 'move-in-cleaning') {
+    if (eyebrowElem) eyebrowElem.textContent = 'COMPLETE PROPERTY RESET';
+    titleElem.textContent = 'Move-In / Move-Out Cleaning';
+    descElem.textContent = 'Provides a thorough cleaning and complete reset of the property before moving in or after moving out. Deep cleans every room, inside cabinets, appliances, and fixtures to meet landlord and real estate agency handover standards.';
+    
+    bodyElem.innerHTML = `
+      <div style="margin-top: 1rem; background: #F4F1EA; border-radius: 12px; padding: 1.25rem; border: 1px solid #E2DCCF;">
+        <h4 style="font-size: 0.9375rem; font-weight: 700; color: #374728; margin-bottom: 0.4rem;">Agency & Landlord Handover Standard</h4>
+        <p style="font-size: 0.875rem; color: #646E5D; margin: 0; line-height: 1.6;">
+          Our move-in and move-out cleaning team handles top-to-bottom sanitisation, interior cabinet detailing, kitchen grease removal, bathroom descaling, window washing, and floor scrubbing so your property is pristine and ready for handover.
+        </p>
+      </div>
+    `;
+  }
+
+  modal.classList.add('active');
+}
+
+function closeServiceDetailsModal() {
+  const modal = document.getElementById('service-details-modal');
+  if (modal) {
+    modal.classList.remove('active');
+  }
+}
+
+// Function to open Every Corner Details Modal ("Every Corner Deserves Attention" section)
+function openCornerDetailModal(cornerKey) {
+  const modal = document.getElementById('corner-details-modal');
+  const imgElem = document.getElementById('corner-modal-img');
+  const eyebrowElem = document.getElementById('corner-modal-eyebrow');
+  const titleElem = document.getElementById('corner-modal-title');
+  const leadElem = document.getElementById('corner-modal-lead');
+  const bodyElem = document.getElementById('corner-modal-body');
+  const ctaLinkElem = document.getElementById('corner-modal-cta-link');
+
+  if (!modal) return;
+
+  const dataMap = {
+    'fixtures': {
+      image: 'assets/detail_fixtures.jpg',
+      eyebrow: 'PRECISION HARDWARE DETAILING',
+      title: 'Spotless Fixtures',
+      lead: 'Technical precision detailing of taps, faucets, light fittings, handles, metallic hardware, and overhead lamps to remove lime scale, tarnish, and water spots, restoring original shine and brilliance.',
+      cleanedList: [
+        'Chrome & brass faucets, mixer spouts, and shower valves',
+        'Overhead rain showerheads, hand sprayers, and aerators',
+        'Cabinet knobs, drawer handles, & stainless steel door hardware',
+        'Light switch plates, metal socket trims, and glass light fittings',
+        'Stainless steel sink drains, stopper caps, and metal strainers'
+      ],
+      benefits: [
+        'Restores long-lasting metallic shine, clarity, and reflection',
+        'Eliminates mineral scale deposits and unsightly hard-water staining',
+        'Protects delicate electroplated finishes from corrosion & oxidation',
+        'Eradicates hidden bacteria and mold spores around joint seams'
+      ],
+      practical: 'Cleaned using non-abrasive, pH-balanced micro-polishes and dedicated soft microfibre towels to protect delicate electroplated surfaces.',
+      ctaText: 'BOOK FIXTURE DETAILING NOW',
+      ctaService: 'Residential Deep Clean'
+    },
+    'surfaces': {
+      image: 'assets/detail_surfaces.jpg',
+      eyebrow: 'MATERIAL-SAFE SURFACE CARE',
+      title: 'Sparkling Surfaces',
+      lead: 'Comprehensive deep cleaning, dusting, micro-wiping, and sanitisation of all horizontal and vertical architectural surfaces, stone counters, wooden desks, and glass trim.',
+      cleanedList: [
+        'Marble, quartz, granite, and timber countertops',
+        'Solid wood desks, dining tables, sideboards, & shelving units',
+        'Glass panels, mirror surrounds, and transparent room dividers',
+        'Architectural baseboards, door frames, window sills, & high ledges',
+        'High-touch light switches, door handles, & digital keypads'
+      ],
+      benefits: [
+        'Removes micro-dust, allergen build-up, and ambient grease',
+        'Protects premium stone & wooden surfaces from permanent staining',
+        'Sanitizes high-touch residential areas to prevent cross-germs',
+        'Delivers a smooth, streak-free, pristine finish across every room'
+      ],
+      practical: 'We utilize stone-safe pH-neutral cleaners and specialized microfiber cloths tailored specifically to natural stone, solid timber, or glass surfaces.',
+      ctaText: 'BOOK SURFACE CLEANING NOW',
+      ctaService: 'Regular Home Cleaning'
+    },
+    'floors': {
+      image: 'assets/detail_floors.jpg',
+      eyebrow: 'DEEP FLOOR SCRUB & POLISH',
+      title: 'Impeccable Floors',
+      lead: 'Intensive vacuuming, deep tile scrub, grout restoration, and specialist floor treatments designed to lift deep-seated dirt and revive floor brilliance.',
+      cleanedList: [
+        'Italian marble, travertine, and polished natural stone tiles',
+        'Ceramic & porcelain floor tiles with deep grout line scrubbing',
+        'Solid hardwood, engineered timber, & moisture-safe luxury laminate',
+        'High-traffic vinyl planking, terrazzo, and entryway area rugs'
+      ],
+      benefits: [
+        'Restores high-gloss reflection and vibrant natural color tone',
+        'Whitens and deep-scrubs discolored, stained tile grout lines',
+        'Eliminates 99.9% of floor dust, micro-particles, and allergens',
+        'Extends floor lifespan by removing abrasive grit and dirt particles'
+      ],
+      practical: 'Customized floor techniques including HEPA vacuuming, low-moisture timber mopping, and specialized rotary tile scrubbers.',
+      ctaText: 'BOOK FLOOR DEEP CLEAN NOW',
+      ctaService: 'Residential Deep Clean'
+    },
+    'bathrooms': {
+      image: 'assets/detail_bathrooms.jpg',
+      eyebrow: 'ANTIBACTERIAL SANITISATION',
+      title: 'Sanitized Bathrooms',
+      lead: 'Deep antibacterial steam sanitisation, limescale descaling, mold removal, and glass polishing to transform your bathroom into a pristine, hygienic sanctuary.',
+      cleanedList: [
+        'Porcelain toilet bowls, bidets, seat hinges, & flush buttons',
+        'Glass shower enclosures, bathtubs, & floor-to-ceiling tile walls',
+        'Washbasins, marble vanity counters, & vanity cabinet exteriors',
+        'Ventilation exhaust fans, mirror panels, and metal drain grates'
+      ],
+      benefits: [
+        'Eradicates 99.9% of harmful bacteria, viruses, and mildew spores',
+        'Removes stubborn limescale crusts, soap scum, and water rings',
+        'Neutralizes unpleasant damp odours at their source',
+        'Leaves glass shower doors crystal-clear and completely streak-free'
+      ],
+      practical: 'Executed using hospital-safe eco disinfectants, specialized steam jets, and color-coded microfibre cloths to ensure absolute hygiene.',
+      ctaText: 'BOOK BATHROOM SANITISATION NOW',
+      ctaService: 'Bathroom Deep Clean'
+    }
+  };
+
+  const item = dataMap[cornerKey];
+  if (!item) return;
+
+  if (imgElem) imgElem.src = item.image;
+  if (eyebrowElem) eyebrowElem.textContent = item.eyebrow;
+  if (titleElem) titleElem.textContent = item.title;
+  if (leadElem) leadElem.textContent = item.lead;
+
+  if (bodyElem) {
+    let listHTML = item.cleanedList.map(li => `<li style="margin-bottom: 0.35rem; display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.84rem; color: #333;"><span style="color: #374728; font-weight: bold;">✓</span> <span>${li}</span></li>`).join('');
+    let benefitsHTML = item.benefits.map(b => `<li style="margin-bottom: 0.35rem; display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.84rem; color: #333;"><span style="color: #374728; font-weight: bold;">✦</span> <span>${b}</span></li>`).join('');
+
+    bodyElem.innerHTML = `
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; margin-bottom: 1rem;">
+        <div style="background: #F4F1EA; padding: 1rem; border-radius: 12px; border: 1px solid #E2DCCF;">
+          <h4 style="font-size: 0.8125rem; font-weight: 700; color: #374728; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem;">What Is Covered</h4>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            ${listHTML}
+          </ul>
+        </div>
+        <div style="background: #F4F1EA; padding: 1rem; border-radius: 12px; border: 1px solid #E2DCCF;">
+          <h4 style="font-size: 0.8125rem; font-weight: 700; color: #374728; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem;">Key Benefits</h4>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            ${benefitsHTML}
+          </ul>
+        </div>
+      </div>
+      <div style="background: #FAF6F0; padding: 0.85rem 1rem; border-radius: 10px; border-left: 3.5px solid #374728; font-size: 0.8125rem; color: #4A5243; line-height: 1.5; margin-bottom: 0.5rem;">
+        <strong style="color: #20241D; display: block; margin-bottom: 0.2rem;">Practical Care Info:</strong>
+        ${item.practical}
+      </div>
+    `;
+  }
+
+  if (ctaLinkElem) {
+    ctaLinkElem.textContent = item.ctaText;
+    ctaLinkElem.setAttribute('onclick', `closeCornerDetailModal(); openBookingModal('${item.ctaService}'); return false;`);
+  }
+
+  modal.classList.add('active');
+}
+
+function closeCornerDetailModal() {
+  const modal = document.getElementById('corner-details-modal');
+  if (modal) {
+    modal.classList.remove('active');
+  }
+}
+
 // Helper to open booking modal dialog
 function openBookingModal(serviceName) {
   const bookingModal = document.getElementById('booking-modal');
   const modalTitle = document.getElementById('modal-title-text');
   const serviceSelect = document.getElementById('service-type');
 
-  if (serviceName && modalTitle) {
-    modalTitle.textContent = `Book ${serviceName}`;
-  } else if (modalTitle) {
-    modalTitle.textContent = 'Book Lumina Service';
-  }
-
-  if (serviceName && serviceSelect) {
-    const options = Array.from(serviceSelect.options);
-    const matchingOpt = options.find(opt => opt.text.toLowerCase().includes(serviceName.toLowerCase()));
-    if (matchingOpt) {
-      serviceSelect.value = matchingOpt.value;
-    }
-  }
-
   if (bookingModal) {
+    if (serviceName && modalTitle) {
+      modalTitle.textContent = `Book ${serviceName}`;
+    } else if (modalTitle) {
+      modalTitle.textContent = 'Book Lumina Service';
+    }
+
+    if (serviceName && serviceSelect) {
+      const options = Array.from(serviceSelect.options);
+      const matchingOpt = options.find(opt => opt.text.toLowerCase().includes(serviceName.toLowerCase()));
+      if (matchingOpt) {
+        serviceSelect.value = matchingOpt.value;
+      }
+    }
+
     bookingModal.classList.add('active');
+  } else {
+    bookServiceWhatsApp(serviceName);
   }
 }
 
@@ -194,6 +488,68 @@ function shareArticle(platform) {
   }
 }
 
+// Blog Navigation & Article View Switcher
+function showBlogOverview() {
+  const overviewView = document.getElementById('blog-overview-view');
+  const articleView = document.getElementById('blog-article-view');
+  
+  if (overviewView && articleView) {
+    articleView.style.display = 'none';
+    overviewView.style.display = 'block';
+    if (window.location.hash.startsWith('#article-')) {
+      history.pushState("", document.title, window.location.pathname + window.location.search);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function openBlogArticle(articleId) {
+  const overviewView = document.getElementById('blog-overview-view');
+  const articleView = document.getElementById('blog-article-view');
+  const allArticles = document.querySelectorAll('.article-detail-container');
+
+  if (!articleView || !overviewView) return;
+
+  overviewView.style.display = 'none';
+  articleView.style.display = 'block';
+
+  allArticles.forEach(art => {
+    art.style.display = 'none';
+  });
+
+  const targetArticle = document.getElementById(articleId);
+  if (targetArticle) {
+    targetArticle.style.display = 'block';
+    window.location.hash = `article-${articleId.replace('article-', '')}`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function filterBlogCategoryTab(btn, categoryName) {
+  const filterBtns = document.querySelectorAll('.category-filter-btn');
+  filterBtns.forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  const cards = document.querySelectorAll('.blog-grid-card, .blog-top-featured-card, .blog-editorial-feature-row');
+  cards.forEach(card => {
+    const cardCat = card.getAttribute('data-category') || '';
+    if (categoryName === 'All' || cardCat.toLowerCase() === categoryName.toLowerCase()) {
+      card.style.display = card.classList.contains('blog-grid-card') ? 'flex' : 'grid';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function handleBlogHashNavigation() {
+  const hash = window.location.hash;
+  if (!hash) return;
+  if (hash.startsWith('#article-')) {
+    const rawId = hash.replace('#article-', '');
+    openBlogArticle(`article-${rawId}`);
+  }
+}
+
 // Filter blog posts by category
 function filterBlogCategory(categoryName) {
   const categoryLinks = document.querySelectorAll('.category-link');
@@ -205,11 +561,11 @@ function filterBlogCategory(categoryName) {
     }
   });
 
-  const cards = document.querySelectorAll('.blog-card, .recent-post-item');
+  const cards = document.querySelectorAll('.blog-grid-card, .blog-top-featured-card, .blog-editorial-feature-row');
   cards.forEach(card => {
     const text = card.textContent.toLowerCase();
     if (!categoryName || categoryName === 'All' || text.includes(categoryName.toLowerCase())) {
-      card.style.display = '';
+      card.style.display = card.classList.contains('blog-grid-card') ? 'flex' : 'grid';
     } else {
       card.style.display = 'none';
     }
@@ -218,11 +574,11 @@ function filterBlogCategory(categoryName) {
 
 // Filter blog content by live query search
 function filterBlogContent(query) {
-  const cards = document.querySelectorAll('.blog-card, .recent-post-item, .blog-point-item');
+  const cards = document.querySelectorAll('.blog-grid-card, .blog-top-featured-card, .blog-editorial-feature-row');
   cards.forEach(card => {
     const text = card.textContent.toLowerCase();
     if (text.includes(query)) {
-      card.style.display = '';
+      card.style.display = card.classList.contains('blog-grid-card') ? 'flex' : 'grid';
     } else {
       card.style.display = 'none';
     }
@@ -246,10 +602,90 @@ function toggleFullBlogPost() {
   }
 }
 
+/**
+ * DYNAMIC LUMINA WHATSAPP MESSAGE GENERATOR
+ * Formats precise, pre-filled WhatsApp messages based on customer selections.
+ *
+ * General Template:
+ * "Hi Lumina, I'm interested in [SERVICE NAME] for [SELECTED OPTIONS]. I'd like to book a cleaning. Please share the available options and pricing."
+ */
+function generateLuminaWhatsAppMessage(serviceName, options = {}) {
+  let mainService = serviceName ? serviceName.trim() : 'Cleaning Service';
+  let optionString = '';
+  let additionalServicesText = '';
+
+  // If options is a raw string (e.g. '2 BHK', 'L-Shaped', 'Office Cleaning', 'Fridge Interior')
+  if (typeof options === 'string') {
+    const rawVal = options.trim();
+    if (rawVal.toLowerCase().includes('bhk') || rawVal.toLowerCase().includes('studio') || rawVal.toLowerCase().includes('villa')) {
+      options = { propertySize: rawVal };
+    } else if (rawVal.toLowerCase().includes('seater') || rawVal.toLowerCase().includes('shaped') || rawVal.toLowerCase().includes('recliner') || rawVal.toLowerCase().includes('sofa bed')) {
+      options = { sofaType: rawVal };
+    } else if (rawVal.toLowerCase().includes('add-on') || rawVal.toLowerCase().includes('fridge') || rawVal.toLowerCase().includes('oven') || rawVal.toLowerCase().includes('laundry') || rawVal.toLowerCase().includes('cabinet') || rawVal.toLowerCase().includes('balcony')) {
+      options = { addonName: rawVal.replace(/add-on/i, '').replace(/cleaning/i, '').trim() };
+    } else {
+      options = { rawOption: rawVal };
+    }
+  }
+
+  if (options && typeof options === 'object') {
+    const { propertySize, sofaType, commercialType, addonName, additionalServices, rawOption } = options;
+
+    if (propertySize) {
+      const sizeFormatted = propertySize.toLowerCase().includes('property') ? propertySize : `${propertySize} property`;
+      const startsWithVowelSound = /^[aeiou]|^(L-)/i.test(sizeFormatted.trim());
+      const article = startsWithVowelSound ? 'an' : 'a';
+      optionString = `for ${article} ${sizeFormatted}`;
+    } else if (sofaType) {
+      const sofaFormatted = sofaType.toLowerCase().includes('sofa') ? sofaType : `${sofaType} sofa`;
+      const startsWithVowelSound = /^[aeiou]|^(L-)/i.test(sofaFormatted.trim());
+      const article = startsWithVowelSound ? 'an' : 'a';
+      optionString = `for ${article} ${sofaFormatted}`;
+    } else if (commercialType) {
+      optionString = `for ${commercialType}`;
+    } else if (addonName) {
+      const cleanAddonName = addonName.replace(/add-on/i, '').replace(/cleaning/i, '').trim();
+      optionString = `the ${cleanAddonName} cleaning add-on`;
+    } else if (rawOption) {
+      if (rawOption.startsWith('for ') || rawOption.startsWith('the ')) {
+        optionString = rawOption;
+      } else {
+        optionString = `for ${rawOption}`;
+      }
+    }
+
+    if (additionalServices && Array.isArray(additionalServices) && additionalServices.length > 0) {
+      const validAddons = additionalServices.filter(Boolean);
+      if (validAddons.length === 1) {
+        additionalServicesText = `. I would also like ${validAddons[0]}`;
+      } else if (validAddons.length > 1) {
+        const lastItem = validAddons.pop();
+        additionalServicesText = `. I would also like ${validAddons.join(', ')} and ${lastItem}`;
+      }
+    }
+  }
+
+  if (options && options.addonName) {
+    return `Hi Lumina, I'm interested in ${optionString}${additionalServicesText}. I'd like to book a cleaning. Please share the available options and pricing.`;
+  }
+
+  if (optionString) {
+    if (optionString.startsWith('for ') || optionString.startsWith('the ')) {
+      return `Hi Lumina, I'm interested in ${mainService} ${optionString}${additionalServicesText}. I'd like to book a cleaning. Please share the available options and pricing.`;
+    } else {
+      return `Hi Lumina, I'm interested in ${mainService} for ${optionString}${additionalServicesText}. I'd like to book a cleaning. Please share the available options and pricing.`;
+    }
+  }
+
+  return `Hi Lumina, I'm interested in ${mainService}${additionalServicesText}. I'd like to book a cleaning. Please share the available options and pricing.`;
+}
+
 // Open Direct WhatsApp Chat
 function openWhatsAppChat(customText) {
   const phone = '971586477660';
-  const message = customText ? encodeURIComponent(customText) : encodeURIComponent("Hello Lumina Cleaning Services! I would like to inquire about booking a cleaning service.");
+  const defaultText = "Hi Lumina, I'm interested in booking a cleaning service. Please share the available options and pricing.";
+  const textToSend = customText ? customText : defaultText;
+  const message = encodeURIComponent(textToSend);
   const waUrl = `https://wa.me/${phone}?text=${message}`;
   window.open(waUrl, '_blank');
 }
@@ -261,13 +697,177 @@ function handleWhatsAppEnquirySubmit() {
   const location = document.getElementById('wa-location') ? document.getElementById('wa-location').value : 'Dubai, UAE';
   const service = document.getElementById('wa-service') ? document.getElementById('wa-service').value : 'Deep Cleaning';
 
-  let msg = `Hello Lumina Cleaning Services! I'd like to book a cleaning on WhatsApp.`;
-  if (name) msg += `\nName: ${name}`;
-  if (phone) msg += `\nPhone: ${phone}`;
-  if (location) msg += `\nLocation: ${location}`;
-  if (service) msg += `\nService Required: ${service}`;
-
+  const msg = generateLuminaWhatsAppMessage(service, { propertySize: location, additionalServices: name ? [`Enquiry from ${name} (${phone})`] : [] });
   openWhatsAppChat(msg);
 }
+
+// Property size selection state & helper for Regular Home Cleaning
+let currentSelectedPropertySize = 'Studio';
+
+function selectPropertySize(btn, size) {
+  currentSelectedPropertySize = size;
+  const container = btn.closest('.property-size-grid');
+  if (container) {
+    container.querySelectorAll('.prop-chip').forEach(chip => chip.classList.remove('active'));
+    btn.classList.add('active');
+  }
+}
+
+function toggleRegularCleaningOptions(event) {
+  const optionsDiv = document.getElementById('regular-home-options');
+  if (optionsDiv) {
+    const isHidden = optionsDiv.style.display === 'none' || !optionsDiv.style.display;
+    optionsDiv.style.display = isHidden ? 'block' : 'none';
+  }
+}
+
+function bookRegularCleaningWhatsApp() {
+  const msg = generateLuminaWhatsAppMessage('Regular Home Cleaning', { propertySize: currentSelectedPropertySize });
+  openWhatsAppChat(msg);
+}
+
+// Sofa type selection state & helper for Sofa & Upholstery Cleaning
+let currentSelectedSofaType = '1 Seater';
+
+function selectSofaType(btn, sofaType) {
+  currentSelectedSofaType = sofaType;
+  const container = btn.closest('.property-size-grid');
+  if (container) {
+    container.querySelectorAll('.prop-chip').forEach(chip => chip.classList.remove('active'));
+    btn.classList.add('active');
+  }
+}
+
+function toggleSofaCleaningOptions(event) {
+  const optionsDiv = document.getElementById('sofa-upholstery-options');
+  if (optionsDiv) {
+    const isHidden = optionsDiv.style.display === 'none' || !optionsDiv.style.display;
+    optionsDiv.style.display = isHidden ? 'block' : 'none';
+  }
+}
+
+function bookSofaCleaningWhatsApp() {
+  const msg = generateLuminaWhatsAppMessage('Sofa & Upholstery Cleaning', { sofaType: currentSelectedSofaType });
+  openWhatsAppChat(msg);
+}
+
+function bookDeepCleaningWhatsApp(propertySize) {
+  const size = propertySize || currentSelectedPropertySize || '2 BHK';
+  const msg = generateLuminaWhatsAppMessage('Residential Deep Cleaning', { propertySize: size });
+  openWhatsAppChat(msg);
+}
+
+function bookCommercialCleaningWhatsApp(commercialType) {
+  const comm = commercialType || 'Office Cleaning';
+  const msg = generateLuminaWhatsAppMessage('Commercial Cleaning', { commercialType: comm });
+  openWhatsAppChat(msg);
+}
+
+function bookAddonWhatsApp(addonName) {
+  const msg = generateLuminaWhatsAppMessage(addonName, { addonName: addonName });
+  openWhatsAppChat(msg);
+}
+
+function bookServiceWhatsApp(serviceName, options) {
+  const msg = generateLuminaWhatsAppMessage(serviceName, options);
+  openWhatsAppChat(msg);
+}
+
+function toggleDeepCleaningServices(event) {
+  const deepSection = document.getElementById('deep-cleaning-list');
+  if (deepSection) {
+    const isHidden = deepSection.style.display === 'none' || !deepSection.style.display;
+    deepSection.style.display = isHidden ? 'block' : 'none';
+    if (isHidden) {
+      deepSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+}
+
+function toggleCommercialServicesOptions(event) {
+  const optionsDiv = document.getElementById('commercial-services-options');
+  if (optionsDiv) {
+    const isHidden = optionsDiv.style.display === 'none' || !optionsDiv.style.display;
+    optionsDiv.style.display = isHidden ? 'block' : 'none';
+  }
+}
+
+function toggleAddOnServicesOptions(event) {
+  const optionsDiv = document.getElementById('addon-services-options');
+  if (optionsDiv) {
+    const isHidden = optionsDiv.style.display === 'none' || !optionsDiv.style.display;
+    optionsDiv.style.display = isHidden ? 'block' : 'none';
+  }
+}
+
+// Hash navigation handler for Service cards & auto-expansions
+function handleServiceHashNavigation() {
+  const hash = window.location.hash;
+  if (!hash) return;
+
+  const targetId = decodeURIComponent(hash.replace('#', ''));
+
+  // Expandable cards handling
+  if (targetId === 'residential-deep-clean') {
+    const deepSection = document.getElementById('deep-cleaning-list');
+    if (deepSection) deepSection.style.display = 'block';
+  } else if (targetId === 'sofa-upholstery') {
+    const sofaOptions = document.getElementById('sofa-upholstery-options');
+    if (sofaOptions) sofaOptions.style.display = 'block';
+  } else if (targetId === 'commercial' || targetId === 'office-cleaning') {
+    const commercialOptions = document.getElementById('commercial-services-options');
+    if (commercialOptions) commercialOptions.style.display = 'block';
+  } else if (targetId === 'add-ons') {
+    const addonOptions = document.getElementById('addon-services-options');
+    if (addonOptions) addonOptions.style.display = 'block';
+  } else if (targetId === 'regular-home-cleaning') {
+    const regularOptions = document.getElementById('regular-home-options');
+    if (regularOptions) regularOptions.style.display = 'block';
+  }
+
+  // Smooth scroll to target element
+  const targetElem = document.getElementById(targetId);
+  if (targetElem) {
+    setTimeout(() => {
+      targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 150);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  handleServiceHashNavigation();
+  handleBlogHashNavigation();
+
+  // Handle same-page clicking of services.html#... links
+  document.querySelectorAll('a[href*="services.html#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      const hashIndex = href.indexOf('#');
+      if (hashIndex !== -1) {
+        const hash = href.substring(hashIndex);
+        if (window.location.pathname.endsWith('services.html') || window.location.pathname === '/' || window.location.pathname === '') {
+          e.preventDefault();
+          if (window.location.hash !== hash) {
+            window.location.hash = hash;
+          } else {
+            handleServiceHashNavigation();
+          }
+        }
+      }
+    });
+  });
+});
+
+window.addEventListener('load', () => {
+  handleServiceHashNavigation();
+  handleBlogHashNavigation();
+});
+
+window.addEventListener('hashchange', () => {
+  handleServiceHashNavigation();
+  handleBlogHashNavigation();
+});
+
+
 
 

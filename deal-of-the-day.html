@@ -116,7 +116,7 @@
           </div>
 
           <button class="btn-deal-whatsapp"
-            onclick="openWhatsAppChat('Hi Lumina, I would like to book today\'s Deal of the Day - Sofa & Upholstery for AED 100. Please confirm availability.')">
+            onclick="bookSofaCleaningWhatsApp()">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.764.459 3.487 1.333 5.006l-1.417 5.176 5.297-1.389c1.472.802 3.136 1.224 4.774 1.225h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.668-1.039-5.176-2.927-7.062a9.923 9.923 0 0 0-7.062-2.955zm0 1.636c4.604 0 8.35 3.746 8.351 8.35 0 2.233-.869 4.332-2.449 5.91-1.579 1.58-3.679 2.45-5.904 2.45h-.003c-1.458 0-2.888-.382-4.148-1.107l-.297-.171-3.085.808.823-3.007-.188-.3a8.318 8.318 0 0 1-1.272-4.382c.001-4.604 3.748-8.351 8.352-8.351z" />
@@ -150,7 +150,7 @@
                   <span class="service-price-old">AED 350</span>
                 </div>
                 <button class="btn-card-whatsapp"
-                  onclick="openWhatsAppChat('Hi Lumina, I would like to book Residential Deep Clean offer at AED 175!')">
+                  onclick="bookDeepCleaningWhatsApp('2 BHK')">
                   <span>Book on WhatsApp</span>
                 </button>
               </div>
@@ -174,7 +174,7 @@
                   <span class="service-price-old">AED 300</span>
                 </div>
                 <button class="btn-card-whatsapp"
-                  onclick="openWhatsAppChat('Hi Lumina, I would like to book Kitchen & Bathroom Combo deal at AED 150!')">
+                  onclick="bookServiceWhatsApp('Kitchen & Bathroom Combo Deep Clean')">
                   <span>Book on WhatsApp</span>
                 </button>
               </div>
@@ -198,7 +198,7 @@
                   <span class="service-price-old">AED 500</span>
                 </div>
                 <button class="btn-card-whatsapp"
-                  onclick="openWhatsAppChat('Hi Lumina, I would like to book Move-In / Move-Out special at AED 350!')">
+                  onclick="bookServiceWhatsApp('Move-In / Move-Out Cleaning')">
                   <span>Book on WhatsApp</span>
                 </button>
               </div>
@@ -265,7 +265,8 @@
   <!-- GLOBAL FOOTER -->
   <footer class="footer" style="background-color: #374728; color: #FFF; padding: 4rem 2.5rem 2rem 2.5rem;">
     <div style="max-width: 1280px; margin: 0 auto;">
-      <div style="display: grid; grid-template-columns: 2fr 1fr 1.25fr 1fr 2fr; gap: 2.5rem; margin-bottom: 3.5rem;">
+      <div class="footer-grid">
+        <!-- Brand & Description -->
         <div>
           <a href="index.html" class="footer-logo" aria-label="Lumina Cleaning Services Home"
             style="display: block; margin-bottom: 1.25rem;">
@@ -276,54 +277,48 @@
           </p>
         </div>
 
+        <!-- Quick Links -->
         <div>
           <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.25rem;">Quick Links</h4>
           <ul
             style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.875rem; color: rgba(255,255,255,0.8);">
-            <li><a href="index.html" style="color: #FFF;">Home</a></li>
-            <li><a href="about.html" style="color: #FFF;">About Us</a></li>
-            <li><a href="services.html" style="color: #FFF;">Our Services</a></li>
-            <li><a href="deal-of-the-day.html" style="color: #FFF;">Deal of the Day</a></li>
-            <li><a href="why-lumina.html" style="color: #FFF;">Why Lumina</a></li>
-            <li><a href="blog.html" style="color: #FFF;">Blog</a></li>
-            <li><a href="contact.html" style="color: #FFF;">Contact Us</a></li>
+            <li><a href="index.html" style="color: #FFF; text-decoration: none;">Home</a></li>
+            <li><a href="about.html" style="color: #FFF; text-decoration: none;">About Us</a></li>
+            <li><a href="services.html" style="color: #FFF; text-decoration: none;">Our Services</a></li>
+            <li><a href="deal-of-the-day.html" style="color: #FFF; text-decoration: none;">Deal of the Day</a></li>
+            <li><a href="why-lumina.html" style="color: #FFF; text-decoration: none;">Why Lumina</a></li>
+            <li><a href="blog.html" style="color: #FFF; text-decoration: none;">Blog</a></li>
+            <li><a href="contact.html" style="color: #FFF; text-decoration: none;">Contact Us</a></li>
           </ul>
         </div>
 
+        <!-- Our Services -->
         <div>
           <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.25rem;">Our Services</h4>
           <ul
             style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.875rem; color: rgba(255,255,255,0.8);">
-            <li><a href="services.html" style="color: #FFF;">Residential Cleaning</a></li>
-            <li><a href="services.html" style="color: #FFF;">Deep Cleaning</a></li>
-            <li><a href="services.html" style="color: #FFF;">Move-In / Move-Out</a></li>
-            <li><a href="services.html" style="color: #FFF;">Office Cleaning</a></li>
-            <li><a href="services.html" style="color: #FFF;">Sofa & Upholstery</a></li>
+            <li><a href="services.html#regular-home-cleaning" style="color: #FFF; text-decoration: none;">Regular Home Cleaning</a></li>
+            <li><a href="services.html#residential-deep-clean" style="color: #FFF; text-decoration: none;">Residential Deep Clean</a></li>
+            <li><a href="services.html#kitchen-deep-clean" style="color: #FFF; text-decoration: none;">Kitchen Deep Clean</a></li>
+            <li><a href="services.html#bathroom-deep-clean" style="color: #FFF; text-decoration: none;">Bathroom Deep Clean</a></li>
+            <li><a href="services.html#move-in-move-out" style="color: #FFF; text-decoration: none;">Move-In / Move-Out</a></li>
+            <li><a href="services.html#spring-full-home-clean" style="color: #FFF; text-decoration: none;">Spring / Full Home Clean</a></li>
+            <li><a href="services.html#villa-garden-care" style="color: #FFF; text-decoration: none;">Villa &amp; Garden Care</a></li>
+            <li><a href="services.html#sofa-upholstery" style="color: #FFF; text-decoration: none;">Sofa &amp; Upholstery</a></li>
+            <li><a href="services.html#commercial" style="color: #FFF; text-decoration: none;">Commercial</a></li>
+            <li><a href="services.html#add-ons" style="color: #FFF; text-decoration: none;">Add-Ons</a></li>
           </ul>
         </div>
 
+        <!-- Contact Us -->
         <div>
           <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.25rem;">Contact Us</h4>
           <ul
             style="list-style: none; display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.875rem; color: rgba(255,255,255,0.8);">
-            <li>📞 +971 58 647 7660</li>
-            <li>✉️ luminaclean.ae@gmail.com</li>
+            <li><a href="tel:+971586477660" style="color: #FFF; text-decoration: none;">📞 +971 58 647 7660</a></li>
+            <li><a href="mailto:luminaclean.ae@gmail.com" style="color: #FFF; text-decoration: none;">✉️ luminaclean.ae@gmail.com</a></li>
             <li>📍 All Areas · Dubai, UAE</li>
           </ul>
-        </div>
-
-        <div>
-          <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.25rem;">Newsletter</h4>
-          <p style="font-size: 0.8125rem; color: rgba(255,255,255,0.75); margin-bottom: 1rem;">
-            Subscribe for cleaning tips, updates, and exclusive offers.
-          </p>
-          <form onsubmit="event.preventDefault(); alert('Thank you for subscribing to Lumina newsletter!');"
-            style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <input type="email" placeholder="Your email address" required
-              style="padding: 0.75rem 1rem; border-radius: 6px; border: none; font-size: 0.875rem; outline: none;">
-            <button type="submit"
-              style="padding: 0.75rem 1rem; background-color: #20241D; color: #FFF; border-radius: 6px; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;">SUBSCRIBE</button>
-          </form>
         </div>
       </div>
 
@@ -331,8 +326,8 @@
         style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8125rem; color: rgba(255,255,255,0.65);">
         <span>&copy; 2026 Lumina Cleaning Services. All rights reserved.</span>
         <div style="display: flex; gap: 1.5rem;">
-          <a href="#" style="color: rgba(255,255,255,0.65);">Privacy Policy</a>
-          <a href="#" style="color: rgba(255,255,255,0.65);">Terms of Service</a>
+          <a href="#" style="color: rgba(255,255,255,0.65); text-decoration: none;">Privacy Policy</a>
+          <a href="#" style="color: rgba(255,255,255,0.65); text-decoration: none;">Terms of Service</a>
         </div>
       </div>
     </div>

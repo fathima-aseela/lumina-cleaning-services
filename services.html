@@ -126,9 +126,9 @@
           </p>
         </div>
 
-        <div class="services-octo-grid">
+        <div class="services-two-col-grid">
           <!-- Card 1: Regular Home Cleaning -->
-          <div class="service-badge-card">
+          <div class="service-badge-card" id="regular-home-cleaning">
             <div class="badge-card-image-wrap">
               <img src="assets/service_home_cleaning.jpg" alt="Regular Home Cleaning" class="badge-card-img" />
               <span class="service-discount-badge">30% OFF</span>
@@ -141,29 +141,58 @@
             <div class="badge-card-body">
               <div>
                 <h3 class="badge-card-title">Regular Home Cleaning</h3>
-                <p class="badge-card-desc">Kitchen, living room, bedroom, bathroom and more.</p>
+                <p class="badge-card-desc">Trusted upkeep on your schedule — weekly, fortnightly or one-off.</p>
               </div>
+
               <div>
                 <div class="service-price-block">
                   <span class="service-price-current">AED 25<span class="price-unit">/hr</span></span>
                   <span class="service-price-old">AED 35</span>
                 </div>
-                <button class="btn-card-whatsapp"
-                  onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Regular Home Cleaning at AED 25/hr!')">
+
+                <!-- SELECT PROPERTY SIZE Button -->
+                <button type="button" class="btn-select-prop-size" onclick="toggleRegularCleaningOptions(event)">
+                  <span>SELECT PROPERTY SIZE</span>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 4l4 4 4-4" />
+                  </svg>
+                </button>
+
+                <!-- Property Size Options (Expandable on Clicking "SELECT PROPERTY SIZE") -->
+                <div id="regular-home-options" class="card-expandable-options"
+                  style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--color-border);"
+                  onclick="event.stopPropagation();">
+                  <span
+                    style="font-size: 0.8125rem; font-weight: 700; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.6rem;">Select
+                    Property Size:</span>
+                  <div class="property-size-grid">
+                    <button type="button" class="prop-chip active"
+                      onclick="selectPropertySize(this, 'Studio')">Studio</button>
+                    <button type="button" class="prop-chip" onclick="selectPropertySize(this, '1 BHK')">1 BHK</button>
+                    <button type="button" class="prop-chip" onclick="selectPropertySize(this, '2 BHK')">2 BHK</button>
+                    <button type="button" class="prop-chip" onclick="selectPropertySize(this, '3 BHK')">3 BHK</button>
+                    <button type="button" class="prop-chip" onclick="selectPropertySize(this, '4 BHK')">4 BHK</button>
+                    <button type="button" class="prop-chip" onclick="selectPropertySize(this, 'Villa / Other')">Villa /
+                      Other</button>
+                  </div>
+                </div>
+
+                <button class="btn-card-whatsapp" style="margin-top: 0.75rem;"
+                  onclick="event.stopPropagation(); bookRegularCleaningWhatsApp();">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                     <path
                       d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
                     <path
                       d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                   </svg>
-                  <span>Book on WhatsApp</span>
+                  <span>BOOK ON WHATSAPP</span>
                 </button>
               </div>
             </div>
           </div>
 
           <!-- Card 2: Residential Deep Clean -->
-          <div class="service-badge-card">
+          <div class="service-badge-card" id="residential-deep-clean" onclick="toggleDeepCleaningServices(event)">
             <div class="badge-card-image-wrap">
               <img src="assets/service_deep_cleaning.jpg" alt="Residential Deep Clean" class="badge-card-img" />
               <span class="service-discount-badge">50% OFF</span>
@@ -176,29 +205,34 @@
             <div class="badge-card-body">
               <div>
                 <h3 class="badge-card-title">Residential Deep Clean</h3>
-                <p class="badge-card-desc">Thorough cleaning for a healthier and hygienic space.</p>
+                <p class="badge-card-desc">Top-to-bottom restoration for villas and apartments.</p>
               </div>
+
+              <div style="margin: 0.75rem 0;">
+                <span class="click-hint-badge">Click to view 11 specialized services &darr;</span>
+              </div>
+
               <div>
                 <div class="service-price-block">
                   <span class="service-price-current">AED 175</span>
                   <span class="service-price-old">AED 350</span>
                 </div>
                 <button class="btn-card-whatsapp"
-                  onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Residential Deep Clean at AED 175!')">
+                  onclick="event.stopPropagation(); bookDeepCleaningWhatsApp()">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                     <path
                       d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
                     <path
                       d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                   </svg>
-                  <span>Book on WhatsApp</span>
+                  <span>BOOK ON WHATSAPP</span>
                 </button>
               </div>
             </div>
           </div>
 
           <!-- Card 3: Kitchen Deep Clean -->
-          <div class="service-badge-card">
+          <div class="service-badge-card" id="kitchen-deep-clean">
             <div class="badge-card-image-wrap">
               <img src="assets/detail_surfaces.jpg" alt="Kitchen Deep Clean" class="badge-card-img" />
               <span class="service-discount-badge">50% OFF</span>
@@ -213,7 +247,7 @@
             <div class="badge-card-body">
               <div>
                 <h3 class="badge-card-title">Kitchen Deep Clean</h3>
-                <p class="badge-card-desc">Grease removal, surface cleaning and appliance sanitization.</p>
+                <p class="badge-card-desc">Degrease every surface, cabinet &amp; appliance.</p>
               </div>
               <div>
                 <div class="service-price-block">
@@ -221,21 +255,21 @@
                   <span class="service-price-old">AED 180</span>
                 </div>
                 <button class="btn-card-whatsapp"
-                  onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Kitchen Deep Clean at AED 90!')">
+                  onclick="bookServiceWhatsApp('Kitchen Deep Cleaning')">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                     <path
                       d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
                     <path
                       d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                   </svg>
-                  <span>Book on WhatsApp</span>
+                  <span>BOOK ON WHATSAPP</span>
                 </button>
               </div>
             </div>
           </div>
 
           <!-- Card 4: Bathroom Deep Clean -->
-          <div class="service-badge-card">
+          <div class="service-badge-card" id="bathroom-deep-clean">
             <div class="badge-card-image-wrap">
               <img src="assets/detail_bathrooms.jpg" alt="Bathroom Deep Clean" class="badge-card-img" />
               <span class="service-discount-badge">50% OFF</span>
@@ -249,7 +283,7 @@
             <div class="badge-card-body">
               <div>
                 <h3 class="badge-card-title">Bathroom Deep Clean</h3>
-                <p class="badge-card-desc">Hygienic and sparkling bathroom cleaning.</p>
+                <p class="badge-card-desc">Descaling, grout, fixtures and full sanitisation.</p>
               </div>
               <div>
                 <div class="service-price-block">
@@ -257,21 +291,21 @@
                   <span class="service-price-old">AED 150</span>
                 </div>
                 <button class="btn-card-whatsapp"
-                  onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Bathroom Deep Clean at AED 75!')">
+                  onclick="bookServiceWhatsApp('Bathroom Deep Cleaning')">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                     <path
                       d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
                     <path
                       d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                   </svg>
-                  <span>Book on WhatsApp</span>
+                  <span>BOOK ON WHATSAPP</span>
                 </button>
               </div>
             </div>
           </div>
 
           <!-- Card 5: Move-In / Move-Out -->
-          <div class="service-badge-card">
+          <div class="service-badge-card" id="move-in-move-out">
             <div class="badge-card-image-wrap">
               <img src="assets/service_move_in.jpg" alt="Move-In / Move-Out" class="badge-card-img" />
               <span class="service-discount-badge">30% OFF</span>
@@ -285,7 +319,7 @@
             <div class="badge-card-body">
               <div>
                 <h3 class="badge-card-title">Move-In / Move-Out</h3>
-                <p class="badge-card-desc">Deep cleaning for moving in or moving out.</p>
+                <p class="badge-card-desc">A full reset that meets landlord and agency standards.</p>
               </div>
               <div>
                 <div class="service-price-block">
@@ -293,21 +327,21 @@
                   <span class="service-price-old">AED 500</span>
                 </div>
                 <button class="btn-card-whatsapp"
-                  onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Move-In / Move-Out cleaning at AED 350!')">
+                  onclick="bookServiceWhatsApp('Move-In / Move-Out Cleaning')">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                     <path
                       d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
                     <path
                       d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                   </svg>
-                  <span>Book on WhatsApp</span>
+                  <span>BOOK ON WHATSAPP</span>
                 </button>
               </div>
             </div>
           </div>
 
           <!-- Card 6: Spring / Full Home Clean -->
-          <div class="service-badge-card">
+          <div class="service-badge-card" id="spring-full-home-clean">
             <div class="badge-card-image-wrap">
               <img src="assets/hero_living_room.jpg" alt="Spring / Full Home Clean" class="badge-card-img" />
               <span class="service-discount-badge">40% OFF</span>
@@ -320,7 +354,7 @@
             <div class="badge-card-body">
               <div>
                 <h3 class="badge-card-title">Spring / Full Home Clean</h3>
-                <p class="badge-card-desc">Complete top-to-bottom deep refresh for your entire home.</p>
+                <p class="badge-card-desc">The complete seasonal refresh, room by room.</p>
               </div>
               <div>
                 <div class="service-price-block">
@@ -328,21 +362,21 @@
                   <span class="service-price-old">AED 450</span>
                 </div>
                 <button class="btn-card-whatsapp"
-                  onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Spring / Full Home Clean at AED 270!')">
+                  onclick="bookServiceWhatsApp('Spring / Full Home Cleaning')">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                     <path
                       d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
                     <path
                       d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                   </svg>
-                  <span>Book on WhatsApp</span>
+                  <span>BOOK ON WHATSAPP</span>
                 </button>
               </div>
             </div>
           </div>
 
           <!-- Card 7: Villa & Garden Care -->
-          <div class="service-badge-card">
+          <div class="service-badge-card" id="villa-garden-care">
             <div class="badge-card-image-wrap">
               <img src="assets/about_hero_decor.jpg" alt="Villa & Garden Care" class="badge-card-img" />
               <span class="service-discount-badge">25% OFF</span>
@@ -354,8 +388,8 @@
             </div>
             <div class="badge-card-body">
               <div>
-                <h3 class="badge-card-title">Villa & Garden Care</h3>
-                <p class="badge-card-desc">Comprehensive cleaning for villas, outdoor patios and garden areas.</p>
+                <h3 class="badge-card-title">Villa &amp; Garden Care</h3>
+                <p class="badge-card-desc">Indoor cleaning plus patios, entrances and outdoor areas.</p>
               </div>
               <div>
                 <div class="service-price-block">
@@ -363,21 +397,21 @@
                   <span class="service-price-old">AED 600</span>
                 </div>
                 <button class="btn-card-whatsapp"
-                  onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Villa & Garden Care at AED 450!')">
+                  onclick="bookServiceWhatsApp('Villa & Garden Care')">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                     <path
                       d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
                     <path
                       d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                   </svg>
-                  <span>Book on WhatsApp</span>
+                  <span>BOOK ON WHATSAPP</span>
                 </button>
               </div>
             </div>
           </div>
 
           <!-- Card 8: Sofa & Upholstery -->
-          <div class="service-badge-card">
+          <div class="service-badge-card" id="sofa-upholstery">
             <div class="badge-card-image-wrap">
               <img src="assets/service_sofa_upholstery.jpg" alt="Sofa & Upholstery" class="badge-card-img" />
               <span class="service-discount-badge">50% OFF</span>
@@ -390,59 +424,521 @@
             </div>
             <div class="badge-card-body">
               <div>
-                <h3 class="badge-card-title">Sofa & Upholstery</h3>
-                <p class="badge-card-desc">Premium cleaning for sofas, chairs and upholstered items.</p>
+                <h3 class="badge-card-title">Sofa &amp; Upholstery</h3>
+                <p class="badge-card-desc">Fabric-safe deep shampoo — like new again.</p>
               </div>
               <div>
                 <div class="service-price-block">
-                  <span class="service-price-current">AED 100</span>
+                  <span class="service-price-current">from AED 100</span>
                   <span class="service-price-old">AED 200</span>
                 </div>
-                <button class="btn-card-whatsapp"
-                  onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Sofa & Upholstery cleaning at AED 100!')">
+
+                <!-- SELECT SOFA TYPE Button -->
+                <button type="button" class="btn-select-prop-size" onclick="toggleSofaCleaningOptions(event)">
+                  <span>SELECT SOFA TYPE</span>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 4l4 4 4-4" />
+                  </svg>
+                </button>
+
+                <!-- Sofa Type Options (Expandable on Clicking "SELECT SOFA TYPE") -->
+                <div id="sofa-upholstery-options" class="card-expandable-options"
+                  style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--color-border);"
+                  onclick="event.stopPropagation();">
+                  <span
+                    style="font-size: 0.8125rem; font-weight: 700; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.6rem;">Select
+                    Sofa Type:</span>
+                  <div class="property-size-grid">
+                    <button type="button" class="prop-chip active" onclick="selectSofaType(this, '1 Seater')">1
+                      Seater</button>
+                    <button type="button" class="prop-chip" onclick="selectSofaType(this, '2 Seater')">2 Seater</button>
+                    <button type="button" class="prop-chip" onclick="selectSofaType(this, '3 Seater')">3 Seater</button>
+                    <button type="button" class="prop-chip" onclick="selectSofaType(this, '4 Seater')">4 Seater</button>
+                    <button type="button" class="prop-chip" onclick="selectSofaType(this, 'L-Shaped')">L-Shaped</button>
+                    <button type="button" class="prop-chip" onclick="selectSofaType(this, 'U-Shaped')">U-Shaped</button>
+                    <button type="button" class="prop-chip" onclick="selectSofaType(this, 'Recliner')">Recliner</button>
+                    <button type="button" class="prop-chip" onclick="selectSofaType(this, 'Sofa Bed')">Sofa Bed</button>
+                    <button type="button" class="prop-chip" onclick="selectSofaType(this, 'Other')">Other</button>
+                  </div>
+                </div>
+
+                <button class="btn-card-whatsapp" style="margin-top: 0.75rem;"
+                  onclick="event.stopPropagation(); bookSofaCleaningWhatsApp();">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                     <path
                       d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
                     <path
                       d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                   </svg>
-                  <span>Book on WhatsApp</span>
+                  <span>BOOK ON WHATSAPP</span>
                 </button>
               </div>
             </div>
           </div>
 
-          <!-- Card 9: AC Duct Cleaning -->
-          <div class="service-badge-card">
+          <!-- Card 9: Commercial -->
+          <div class="service-badge-card" id="commercial">
             <div class="badge-card-image-wrap">
-              <img src="assets/service_ac_duct.jpg" alt="AC Duct Cleaning" class="badge-card-img" />
-              <span class="service-discount-badge">40% OFF</span>
+              <img src="assets/service_office_cleaning.jpg" alt="Commercial Cleaning" class="badge-card-img" />
+              <span class="service-discount-badge" style="background: #2E4028;">COMMERCIAL</span>
               <div class="card-icon-badge">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <path
-                    d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" />
+                  <path d="M3 21h18M3 7v14M21 7v14M6 7V3h12v4M9 11h2M13 11h2M9 15h2M13 15h2" />
                 </svg>
               </div>
             </div>
             <div class="badge-card-body">
               <div>
-                <h3 class="badge-card-title">AC Duct Cleaning</h3>
-                <p class="badge-card-desc">Air duct cleaning & sanitization for pure indoor air.</p>
+                <h3 class="badge-card-title">Commercial</h3>
+                <p class="badge-card-desc">Tailored workplace, retail, F&amp;B, warehouse and facility cleaning
+                  solutions.</p>
               </div>
               <div>
                 <div class="service-price-block">
-                  <span class="service-price-current">AED 150</span>
-                  <span class="service-price-old">AED 250</span>
+                  <span class="service-price-current">Custom quote</span>
                 </div>
-                <button class="btn-card-whatsapp"
-                  onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book AC Duct Cleaning at AED 150!')">
+
+                <!-- VIEW COMMERCIAL SERVICES Button -->
+                <button type="button" class="btn-select-prop-size" onclick="toggleCommercialServicesOptions(event)">
+                  <span>VIEW COMMERCIAL SERVICES</span>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 4l4 4 4-4" />
+                  </svg>
+                </button>
+
+                <!-- Commercial Services List (Expandable on Clicking "VIEW COMMERCIAL SERVICES") -->
+                <div id="commercial-services-options" class="card-expandable-options"
+                  style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--color-border);"
+                  onclick="event.stopPropagation();">
+                  <span
+                    style="font-size: 0.8125rem; font-weight: 700; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">
+                    Commercial Cleaning Services:
+                  </span>
+
+                  <div class="commercial-subservices-list"
+                    style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 0.5rem;">
+
+                    <!-- 1. Office Cleaning -->
+                    <div class="comm-subservice-item" id="office-cleaning"
+                      style="background: rgba(244, 241, 234, 0.6); border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.9rem;">
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; color: #20241D; margin: 0;">Office Cleaning
+                        </h4>
+                        <span
+                          style="font-size: 0.6875rem; font-weight: 700; background: #E8E2D5; color: #374728; padding: 0.2rem 0.55rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.03em;">Free
+                          quote</span>
+                      </div>
+                      <p style="font-size: 0.8125rem; color: #646E5D; margin: 0 0 0.5rem 0; line-height: 1.4;">Discreet
+                        daily or scheduled workplace cleaning.</p>
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 0.4rem;">
+                        <span style="font-size: 0.8125rem; font-weight: 700; color: #374728;">Custom quote</span>
+                        <button type="button" class="btn-subservice-action"
+                          onclick="bookCommercialCleaningWhatsApp('Office Cleaning')"
+                          style="background: #374728; color: #FFF; border: none; padding: 0.35rem 0.85rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;">ENQUIRE</button>
+                      </div>
+                    </div>
+
+                    <!-- 2. Retail & Showroom -->
+                    <div class="comm-subservice-item"
+                      style="background: rgba(244, 241, 234, 0.6); border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.9rem;">
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; color: #20241D; margin: 0;">Retail &amp;
+                          Showroom</h4>
+                        <span
+                          style="font-size: 0.6875rem; font-weight: 700; background: #E8E2D5; color: #374728; padding: 0.2rem 0.55rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.03em;">Free
+                          quote</span>
+                      </div>
+                      <p style="font-size: 0.8125rem; color: #646E5D; margin: 0 0 0.5rem 0; line-height: 1.4;">Spotless
+                        floors and displays before you open.</p>
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 0.4rem;">
+                        <span style="font-size: 0.8125rem; font-weight: 700; color: #374728;">Custom quote</span>
+                        <button type="button" class="btn-subservice-action"
+                          onclick="bookCommercialCleaningWhatsApp('Retail & Showroom Cleaning')"
+                          style="background: #374728; color: #FFF; border: none; padding: 0.35rem 0.85rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;">ENQUIRE</button>
+                      </div>
+                    </div>
+
+                    <!-- 3. Restaurant & F&B -->
+                    <div class="comm-subservice-item"
+                      style="background: rgba(244, 241, 234, 0.6); border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.9rem;">
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; color: #20241D; margin: 0;">Restaurant &amp;
+                          F&amp;B</h4>
+                        <span
+                          style="font-size: 0.6875rem; font-weight: 700; background: #E8E2D5; color: #374728; padding: 0.2rem 0.55rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.03em;">Free
+                          quote</span>
+                      </div>
+                      <p style="font-size: 0.8125rem; color: #646E5D; margin: 0 0 0.5rem 0; line-height: 1.4;">Kitchen,
+                        front-of-house and HACCP-aware cleaning.</p>
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 0.4rem;">
+                        <span style="font-size: 0.8125rem; font-weight: 700; color: #374728;">Custom quote</span>
+                        <button type="button" class="btn-subservice-action"
+                          onclick="bookCommercialCleaningWhatsApp('Restaurant & F&B Cleaning')"
+                          style="background: #374728; color: #FFF; border: none; padding: 0.35rem 0.85rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;">ENQUIRE</button>
+                      </div>
+                    </div>
+
+                    <!-- 4. Warehouse & Industrial -->
+                    <div class="comm-subservice-item"
+                      style="background: rgba(244, 241, 234, 0.6); border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.9rem;">
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; color: #20241D; margin: 0;">Warehouse &amp;
+                          Industrial</h4>
+                        <span
+                          style="font-size: 0.6875rem; font-weight: 700; background: #E8E2D5; color: #374728; padding: 0.2rem 0.55rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.03em;">Free
+                          quote</span>
+                      </div>
+                      <p style="font-size: 0.8125rem; color: #646E5D; margin: 0 0 0.5rem 0; line-height: 1.4;">High-bay,
+                        floor-scrubbing and heavy-duty work.</p>
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 0.4rem;">
+                        <span style="font-size: 0.8125rem; font-weight: 700; color: #374728;">Custom quote</span>
+                        <button type="button" class="btn-subservice-action"
+                          onclick="bookCommercialCleaningWhatsApp('Warehouse & Industrial Cleaning')"
+                          style="background: #374728; color: #FFF; border: none; padding: 0.35rem 0.85rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;">ENQUIRE</button>
+                      </div>
+                    </div>
+
+                    <!-- 5. Facility Management -->
+                    <div class="comm-subservice-item"
+                      style="background: rgba(244, 241, 234, 0.6); border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.9rem;">
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; color: #20241D; margin: 0;">Facility
+                          Management</h4>
+                        <span
+                          style="font-size: 0.6875rem; font-weight: 700; background: #E8E2D5; color: #374728; padding: 0.2rem 0.55rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.03em;">Free
+                          quote</span>
+                      </div>
+                      <p style="font-size: 0.8125rem; color: #646E5D; margin: 0 0 0.5rem 0; line-height: 1.4;">Ongoing
+                        contracts with a dedicated team.</p>
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 0.4rem;">
+                        <span style="font-size: 0.8125rem; font-weight: 700; color: #374728;">Custom quote</span>
+                        <button type="button" class="btn-subservice-action"
+                          onclick="bookCommercialCleaningWhatsApp('Facility Management')"
+                          style="background: #374728; color: #FFF; border: none; padding: 0.35rem 0.85rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;">ENQUIRE</button>
+                      </div>
+                    </div>
+
+                    <!-- 6. Event Cleanup -->
+                    <div class="comm-subservice-item"
+                      style="background: rgba(244, 241, 234, 0.6); border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.9rem;">
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; color: #20241D; margin: 0;">Event Cleanup
+                        </h4>
+                        <span
+                          style="font-size: 0.6875rem; font-weight: 700; background: #C85A32; color: #FFF; padding: 0.2rem 0.55rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.03em;">20%
+                          OFF</span>
+                      </div>
+                      <p style="font-size: 0.8125rem; color: #646E5D; margin: 0 0 0.5rem 0; line-height: 1.4;">Before,
+                        during and after-event crews.</p>
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 0.4rem;">
+                        <div>
+                          <span style="font-size: 0.875rem; font-weight: 700; color: #374728; margin-right: 0.4rem;">AED
+                            480</span>
+                          <span style="font-size: 0.75rem; color: #8F9988; text-decoration: line-through;">AED
+                            600</span>
+                        </div>
+                        <button type="button" class="btn-subservice-action"
+                          onclick="bookCommercialCleaningWhatsApp('Event Cleanup')"
+                          style="background: #25D366; color: #FFF; border: none; padding: 0.35rem 0.85rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                            <path
+                              d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
+                          </svg>
+                          <span>BOOK ON WHATSAPP</span>
+                        </button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <button class="btn-card-whatsapp" style="margin-top: 0.75rem;"
+                  onclick="event.stopPropagation(); bookCommercialCleaningWhatsApp();">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                     <path
                       d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
                     <path
                       d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                   </svg>
-                  <span>Book on WhatsApp</span>
+                  <span>BOOK ON WHATSAPP</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 10: Add-Ons -->
+          <div class="service-badge-card" id="add-ons">
+            <div class="badge-card-image-wrap">
+              <img src="assets/service_laundry.jpg" alt="Laundry & Add-On Services" class="badge-card-img" />
+              <span class="service-discount-badge" style="background: #374728;">ADD-ONS</span>
+              <div class="card-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+              </div>
+            </div>
+            <div class="badge-card-body">
+              <div>
+                <h3 class="badge-card-title">Add-Ons</h3>
+                <p class="badge-card-desc">Customise your service with specialized home &amp; detail cleaning add-ons.
+                </p>
+              </div>
+              <div>
+                <div class="service-price-block">
+                  <span class="service-price-current">from AED 20</span>
+                </div>
+
+                <!-- VIEW ADD-ON SERVICES Button -->
+                <button type="button" class="btn-select-prop-size" onclick="toggleAddOnServicesOptions(event)">
+                  <span>VIEW ADD-ON SERVICES</span>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 4l4 4 4-4" />
+                  </svg>
+                </button>
+
+                <!-- Add-On Services List (Expandable on Clicking "VIEW ADD-ON SERVICES") -->
+                <div id="addon-services-options" class="card-expandable-options"
+                  style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--color-border);"
+                  onclick="event.stopPropagation();">
+                  <span
+                    style="font-size: 0.8125rem; font-weight: 700; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.75rem;">
+                    Select Add-On Service:
+                  </span>
+
+                  <div class="addon-subservices-list"
+                    style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 0.5rem;">
+
+                    <!-- 1. Laundry & Ironing -->
+                    <div class="comm-subservice-item"
+                      style="background: rgba(244, 241, 234, 0.6); border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.9rem;">
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; color: #20241D; margin: 0;">Laundry &amp;
+                          Ironing</h4>
+                        <span
+                          style="font-size: 0.6875rem; font-weight: 700; background: #C85A32; color: #FFF; padding: 0.2rem 0.55rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.03em;">30%
+                          OFF</span>
+                      </div>
+                      <p style="font-size: 0.8125rem; color: #646E5D; margin: 0 0 0.5rem 0; line-height: 1.4;">Wash,
+                        fold and press — picked up and returned.</p>
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 0.4rem;">
+                        <div>
+                          <span style="font-size: 0.875rem; font-weight: 700; color: #374728; margin-right: 0.4rem;">AED
+                            42</span>
+                          <span style="font-size: 0.75rem; color: #8F9988; text-decoration: line-through;">AED 60</span>
+                        </div>
+                        <button type="button" class="btn-subservice-action"
+                          onclick="bookAddonWhatsApp('Laundry & Ironing')"
+                          style="background: #25D366; color: #FFF; border: none; padding: 0.35rem 0.85rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                            <path
+                              d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
+                          </svg>
+                          <span>BOOK ON WHATSAPP</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- 2. Fridge Interior -->
+                    <div class="comm-subservice-item"
+                      style="background: rgba(244, 241, 234, 0.6); border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.9rem;">
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; color: #20241D; margin: 0;">Fridge Interior
+                        </h4>
+                        <span
+                          style="font-size: 0.6875rem; font-weight: 700; background: #C85A32; color: #FFF; padding: 0.2rem 0.55rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.03em;">50%
+                          OFF</span>
+                      </div>
+                      <p style="font-size: 0.8125rem; color: #646E5D; margin: 0 0 0.5rem 0; line-height: 1.4;">Empty,
+                        sanitise and deodorise.</p>
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 0.4rem;">
+                        <div>
+                          <span style="font-size: 0.875rem; font-weight: 700; color: #374728; margin-right: 0.4rem;">AED
+                            25</span>
+                          <span style="font-size: 0.75rem; color: #8F9988; text-decoration: line-through;">AED 50</span>
+                        </div>
+                        <button type="button" class="btn-subservice-action"
+                          onclick="bookAddonWhatsApp('Fridge Interior')"
+                          style="background: #25D366; color: #FFF; border: none; padding: 0.35rem 0.85rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                            <path
+                              d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
+                          </svg>
+                          <span>BOOK ON WHATSAPP</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- 3. Oven Interior -->
+                    <div class="comm-subservice-item"
+                      style="background: rgba(244, 241, 234, 0.6); border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.9rem;">
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; color: #20241D; margin: 0;">Oven Interior
+                        </h4>
+                        <span
+                          style="font-size: 0.6875rem; font-weight: 700; background: #C85A32; color: #FFF; padding: 0.2rem 0.55rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.03em;">50%
+                          OFF</span>
+                      </div>
+                      <p style="font-size: 0.8125rem; color: #646E5D; margin: 0 0 0.5rem 0; line-height: 1.4;">Degrease
+                        racks, glass and cavity.</p>
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 0.4rem;">
+                        <div>
+                          <span style="font-size: 0.875rem; font-weight: 700; color: #374728; margin-right: 0.4rem;">AED
+                            25</span>
+                          <span style="font-size: 0.75rem; color: #8F9988; text-decoration: line-through;">AED 50</span>
+                        </div>
+                        <button type="button" class="btn-subservice-action"
+                          onclick="bookAddonWhatsApp('Oven Interior')"
+                          style="background: #25D366; color: #FFF; border: none; padding: 0.35rem 0.85rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                            <path
+                              d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
+                          </svg>
+                          <span>BOOK ON WHATSAPP</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- 4. Cabinet Interiors -->
+                    <div class="comm-subservice-item"
+                      style="background: rgba(244, 241, 234, 0.6); border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.9rem;">
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; color: #20241D; margin: 0;">Cabinet Interiors
+                        </h4>
+                        <span
+                          style="font-size: 0.6875rem; font-weight: 700; background: #C85A32; color: #FFF; padding: 0.2rem 0.55rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.03em;">50%
+                          OFF</span>
+                      </div>
+                      <p style="font-size: 0.8125rem; color: #646E5D; margin: 0 0 0.5rem 0; line-height: 1.4;">Empty,
+                        wipe and reline.</p>
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 0.4rem;">
+                        <div>
+                          <span style="font-size: 0.875rem; font-weight: 700; color: #374728; margin-right: 0.4rem;">AED
+                            20</span>
+                          <span style="font-size: 0.75rem; color: #8F9988; text-decoration: line-through;">AED 40</span>
+                        </div>
+                        <button type="button" class="btn-subservice-action"
+                          onclick="bookAddonWhatsApp('Cabinet Interiors')"
+                          style="background: #25D366; color: #FFF; border: none; padding: 0.35rem 0.85rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                            <path
+                              d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
+                          </svg>
+                          <span>BOOK ON WHATSAPP</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- 5. Wardrobe Organising -->
+                    <div class="comm-subservice-item"
+                      style="background: rgba(244, 241, 234, 0.6); border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.9rem;">
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; color: #20241D; margin: 0;">Wardrobe
+                          Organising</h4>
+                        <span
+                          style="font-size: 0.6875rem; font-weight: 700; background: #C85A32; color: #FFF; padding: 0.2rem 0.55rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.03em;">30%
+                          OFF</span>
+                      </div>
+                      <p style="font-size: 0.8125rem; color: #646E5D; margin: 0 0 0.5rem 0; line-height: 1.4;">
+                        Declutter, sort and arrange.</p>
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 0.4rem;">
+                        <div>
+                          <span style="font-size: 0.875rem; font-weight: 700; color: #374728; margin-right: 0.4rem;">AED
+                            84</span>
+                          <span style="font-size: 0.75rem; color: #8F9988; text-decoration: line-through;">AED
+                            120</span>
+                        </div>
+                        <button type="button" class="btn-subservice-action"
+                          onclick="bookAddonWhatsApp('Wardrobe Organising')"
+                          style="background: #25D366; color: #FFF; border: none; padding: 0.35rem 0.85rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                            <path
+                              d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
+                          </svg>
+                          <span>BOOK ON WHATSAPP</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- 6. Balcony & Terrace -->
+                    <div class="comm-subservice-item"
+                      style="background: rgba(244, 241, 234, 0.6); border: 1px solid #E2DCCF; border-radius: 10px; padding: 0.85rem 0.9rem;">
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; color: #20241D; margin: 0;">Balcony &amp;
+                          Terrace</h4>
+                        <span
+                          style="font-size: 0.6875rem; font-weight: 700; background: #C85A32; color: #FFF; padding: 0.2rem 0.55rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.03em;">40%
+                          OFF</span>
+                      </div>
+                      <p style="font-size: 0.8125rem; color: #646E5D; margin: 0 0 0.5rem 0; line-height: 1.4;">Wash-down
+                        of outdoor tiles and railings.</p>
+                      <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 0.4rem;">
+                        <div>
+                          <span style="font-size: 0.875rem; font-weight: 700; color: #374728; margin-right: 0.4rem;">AED
+                            36</span>
+                          <span style="font-size: 0.75rem; color: #8F9988; text-decoration: line-through;">AED 60</span>
+                        </div>
+                        <button type="button" class="btn-subservice-action"
+                          onclick="bookAddonWhatsApp('Balcony & Terrace')"
+                          style="background: #25D366; color: #FFF; border: none; padding: 0.35rem 0.85rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 0.3rem;">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                            <path
+                              d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
+                          </svg>
+                          <span>BOOK ON WHATSAPP</span>
+                        </button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <button class="btn-card-whatsapp" style="margin-top: 0.75rem;"
+                  onclick="event.stopPropagation(); bookAddonWhatsApp('Add-On Services');">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                    <path
+                      d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
+                  </svg>
+                  <span>BOOK ON WHATSAPP</span>
                 </button>
               </div>
             </div>
@@ -454,7 +950,7 @@
     <!-- ==========================================
          SECTION: DEEP CLEANING SERVICES (11 SERVICES)
          ========================================== -->
-    <div id="deep-cleaning-list" class="deep-cleaning-section">
+    <div id="deep-cleaning-list" class="deep-cleaning-section" style="display: none;">
       <div class="section-container">
         <div class="section-header-center">
           <span class="section-eyebrow">SPECIALIZED CARE</span>
@@ -465,7 +961,8 @@
           <div class="leaf-divider" style="margin-top: 0.8rem;">
             <div class="leaf-divider-line"></div>
             <svg class="leaf-divider-svg" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 16C8 10 16 4 28 4C28 4 22 10 18 14C14 18 10 18 4 16Z" stroke="#7A876E" stroke-width="1.8" fill="rgba(122, 135, 110, 0.2)" />
+              <path d="M4 16C8 10 16 4 28 4C28 4 22 10 18 14C14 18 10 18 4 16Z" stroke="#7A876E" stroke-width="1.8"
+                fill="rgba(122, 135, 110, 0.2)" />
               <path d="M12 12C16 10 22 10 28 4" stroke="#7A876E" stroke-width="1.5" stroke-linecap="round" />
             </svg>
             <div class="leaf-divider-line"></div>
@@ -489,10 +986,13 @@
                 <span class="deep-clean-price-current">AED 60</span>
                 <span class="deep-clean-price-old">AED 120</span>
               </div>
-              <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Carpet & Rug Cleaning at AED 60!')">
+              <button class="btn-deep-clean-wa"
+                onclick="bookServiceWhatsApp('Carpet & Rug Cleaning')">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                 </svg>
                 <span>BOOK ON WHATSAPP</span>
               </button>
@@ -513,10 +1013,13 @@
                 <span class="deep-clean-price-current">AED 100</span>
                 <span class="deep-clean-price-old">AED 200</span>
               </div>
-              <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Sofa & Upholstery cleaning at AED 100!')">
+              <button class="btn-deep-clean-wa"
+                onclick="bookSofaCleaningWhatsApp()">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                 </svg>
                 <span>BOOK ON WHATSAPP</span>
               </button>
@@ -537,10 +1040,13 @@
                 <span class="deep-clean-price-current">AED 45</span>
                 <span class="deep-clean-price-old">AED 90</span>
               </div>
-              <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Mattress Deep Clean at AED 45!')">
+              <button class="btn-deep-clean-wa"
+                onclick="bookServiceWhatsApp('Mattress Deep Clean')">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                 </svg>
                 <span>BOOK ON WHATSAPP</span>
               </button>
@@ -561,10 +1067,13 @@
                 <span class="deep-clean-price-current">AED 90</span>
                 <span class="deep-clean-price-old">AED 150</span>
               </div>
-              <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Curtains & Drapery cleaning at AED 90!')">
+              <button class="btn-deep-clean-wa"
+                onclick="bookServiceWhatsApp('Curtains & Drapery Cleaning')">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                 </svg>
                 <span>BOOK ON WHATSAPP</span>
               </button>
@@ -585,10 +1094,13 @@
                 <span class="deep-clean-price-current">AED 78</span>
                 <span class="deep-clean-price-old">AED 130</span>
               </div>
-              <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Window & Glass cleaning at AED 78!')">
+              <button class="btn-deep-clean-wa"
+                onclick="bookServiceWhatsApp('Window & Glass Cleaning')">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                 </svg>
                 <span>BOOK ON WHATSAPP</span>
               </button>
@@ -609,10 +1121,13 @@
                 <span class="deep-clean-price-current">AED 196</span>
                 <span class="deep-clean-price-old">AED 280</span>
               </div>
-              <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Floor & Marble Polishing at AED 196!')">
+              <button class="btn-deep-clean-wa"
+                onclick="bookServiceWhatsApp('Floor & Marble Polishing')">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                 </svg>
                 <span>BOOK ON WHATSAPP</span>
               </button>
@@ -633,10 +1148,13 @@
                 <span class="deep-clean-price-current">AED 150</span>
                 <span class="deep-clean-price-old">AED 250</span>
               </div>
-              <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book AC Duct Cleaning at AED 150!')">
+              <button class="btn-deep-clean-wa"
+                onclick="bookServiceWhatsApp('AC Duct Cleaning')">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                 </svg>
                 <span>BOOK ON WHATSAPP</span>
               </button>
@@ -657,10 +1175,13 @@
                 <span class="deep-clean-price-current">AED 263</span>
                 <span class="deep-clean-price-old">AED 350</span>
               </div>
-              <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Water Tank Cleaning at AED 263!')">
+              <button class="btn-deep-clean-wa"
+                onclick="bookServiceWhatsApp('Water Tank Cleaning')">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                 </svg>
                 <span>BOOK ON WHATSAPP</span>
               </button>
@@ -681,10 +1202,13 @@
                 <span class="deep-clean-price-current">AED 100</span>
                 <span class="deep-clean-price-old">AED 200</span>
               </div>
-              <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Disinfection & Sanitisation at AED 100!')">
+              <button class="btn-deep-clean-wa"
+                onclick="bookServiceWhatsApp('Disinfection & Sanitisation')">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                 </svg>
                 <span>BOOK ON WHATSAPP</span>
               </button>
@@ -705,10 +1229,13 @@
                 <span class="deep-clean-price-current">AED 126</span>
                 <span class="deep-clean-price-old">AED 180</span>
               </div>
-              <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Pest Control at AED 126!')">
+              <button class="btn-deep-clean-wa"
+                onclick="bookServiceWhatsApp('Pest Control')">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                 </svg>
                 <span>BOOK ON WHATSAPP</span>
               </button>
@@ -728,10 +1255,13 @@
               <div class="deep-clean-price-row">
                 <span class="deep-clean-price-quote">Custom quote</span>
               </div>
-              <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like an enquiry & free quote for Post-Construction Clean!')">
+              <button class="btn-deep-clean-wa"
+                onclick="bookServiceWhatsApp('Post-Construction Clean')">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
                 </svg>
                 <span>ENQUIRE ON WHATSAPP</span>
               </button>
@@ -747,7 +1277,8 @@
       <div class="section-container">
         <div class="section-header-center">
           <span class="section-eyebrow">QUICK RESERVATION</span>
-          <h2 class="section-title-main" style="font-family: var(--font-serif); font-size: 2.2rem; color: #20241D;">Select & Book Instantly</h2>
+          <h2 class="section-title-main" style="font-family: var(--font-serif); font-size: 2.2rem; color: #20241D;">
+            Select & Book Instantly</h2>
         </div>
 
         <div class="book-cards-grid">
@@ -762,7 +1293,8 @@
               </div>
               <button class="btn-circle-arrow" aria-label="Book Deep Cleaning">
                 <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#354527" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#354527" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
                 </svg>
               </button>
             </div>
@@ -779,7 +1311,8 @@
               </div>
               <button class="btn-circle-arrow" aria-label="Book Home Cleaning">
                 <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#354527" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#354527" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
                 </svg>
               </button>
             </div>
@@ -796,7 +1329,8 @@
               </div>
               <button class="btn-circle-arrow" aria-label="Book Sofa & Upholstery">
                 <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#354527" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#354527" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
                 </svg>
               </button>
             </div>
@@ -813,7 +1347,8 @@
               </div>
               <button class="btn-circle-arrow" aria-label="Book Move-In Cleaning">
                 <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#354527" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#354527" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
                 </svg>
               </button>
             </div>
@@ -858,65 +1393,70 @@
   <!-- GLOBAL FOOTER -->
   <footer class="footer" style="background-color: #374728; color: #FFF; padding: 4rem 2.5rem 2rem 2.5rem;">
     <div style="max-width: 1280px; margin: 0 auto;">
-      <div style="display: grid; grid-template-columns: 2fr 1fr 1.25fr 1fr 2fr; gap: 2.5rem; margin-bottom: 3.5rem;">
+      <div class="footer-grid">
+        <!-- Brand & Description -->
         <div>
           <a href="index.html" class="footer-logo" aria-label="Lumina Cleaning Services Home"
             style="display: block; margin-bottom: 1.25rem;">
             <img src="assets/logo-white.png" alt="Lumina Cleaning Services Logo" class="brand-footer-logo-img">
           </a>
           <p style="font-size: 0.875rem; color: rgba(255,255,255,0.75); line-height: 1.6; margin-bottom: 1.5rem;">
-            We deliver exceptional cleaning services that enhance lives, create healthier spaces, and bring peace of mind to every home and business.
+            We deliver exceptional cleaning services that enhance lives, create healthier spaces, and bring peace of
+            mind to every home and business.
           </p>
         </div>
 
+        <!-- Quick Links -->
         <div>
           <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.25rem;">Quick Links</h4>
           <ul
             style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.875rem; color: rgba(255,255,255,0.8);">
-            <li><a href="index.html" style="color: #FFF;">Home</a></li>
-            <li><a href="about.html" style="color: #FFF;">About Us</a></li>
-            <li><a href="services.html" style="color: #FFF;">Our Services</a></li>
-            <li><a href="deal-of-the-day.html" style="color: #FFF;">Deal of the Day</a></li>
-            <li><a href="why-lumina.html" style="color: #FFF;">Why Lumina</a></li>
-            <li><a href="blog.html" style="color: #FFF;">Blog</a></li>
-            <li><a href="contact.html" style="color: #FFF;">Contact Us</a></li>
+            <li><a href="index.html" style="color: #FFF; text-decoration: none;">Home</a></li>
+            <li><a href="about.html" style="color: #FFF; text-decoration: none;">About Us</a></li>
+            <li><a href="services.html" style="color: #FFF; text-decoration: none;">Our Services</a></li>
+            <li><a href="deal-of-the-day.html" style="color: #FFF; text-decoration: none;">Deal of the Day</a></li>
+            <li><a href="why-lumina.html" style="color: #FFF; text-decoration: none;">Why Lumina</a></li>
+            <li><a href="blog.html" style="color: #FFF; text-decoration: none;">Blog</a></li>
+            <li><a href="contact.html" style="color: #FFF; text-decoration: none;">Contact Us</a></li>
           </ul>
         </div>
 
+        <!-- Our Services -->
         <div>
           <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.25rem;">Our Services</h4>
           <ul
             style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.875rem; color: rgba(255,255,255,0.8);">
-            <li><a href="services.html" style="color: #FFF;">Residential Cleaning</a></li>
-            <li><a href="services.html" style="color: #FFF;">Deep Cleaning</a></li>
-            <li><a href="services.html" style="color: #FFF;">Move-In / Move-Out</a></li>
-            <li><a href="services.html" style="color: #FFF;">Office Cleaning</a></li>
-            <li><a href="services.html" style="color: #FFF;">Sofa & Upholstery</a></li>
+            <li><a href="services.html#regular-home-cleaning" style="color: #FFF; text-decoration: none;">Regular Home
+                Cleaning</a></li>
+            <li><a href="services.html#residential-deep-clean" style="color: #FFF; text-decoration: none;">Residential
+                Deep Clean</a></li>
+            <li><a href="services.html#kitchen-deep-clean" style="color: #FFF; text-decoration: none;">Kitchen Deep
+                Clean</a></li>
+            <li><a href="services.html#bathroom-deep-clean" style="color: #FFF; text-decoration: none;">Bathroom Deep
+                Clean</a></li>
+            <li><a href="services.html#move-in-move-out" style="color: #FFF; text-decoration: none;">Move-In /
+                Move-Out</a></li>
+            <li><a href="services.html#spring-full-home-clean" style="color: #FFF; text-decoration: none;">Spring / Full
+                Home Clean</a></li>
+            <li><a href="services.html#villa-garden-care" style="color: #FFF; text-decoration: none;">Villa &amp; Garden
+                Care</a></li>
+            <li><a href="services.html#sofa-upholstery" style="color: #FFF; text-decoration: none;">Sofa &amp;
+                Upholstery</a></li>
+            <li><a href="services.html#commercial" style="color: #FFF; text-decoration: none;">Commercial</a></li>
+            <li><a href="services.html#add-ons" style="color: #FFF; text-decoration: none;">Add-Ons</a></li>
           </ul>
         </div>
 
+        <!-- Contact Us -->
         <div>
           <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.25rem;">Contact Us</h4>
           <ul
             style="list-style: none; display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.875rem; color: rgba(255,255,255,0.8);">
-            <li>📞 +971 58 647 7660</li>
-            <li>✉️ luminaclean.ae@gmail.com</li>
+            <li><a href="tel:+971586477660" style="color: #FFF; text-decoration: none;">📞 +971 58 647 7660</a></li>
+            <li><a href="mailto:luminaclean.ae@gmail.com" style="color: #FFF; text-decoration: none;">✉️
+                luminaclean.ae@gmail.com</a></li>
             <li>📍 All Areas · Dubai, UAE</li>
           </ul>
-        </div>
-
-        <div>
-          <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.25rem;">Newsletter</h4>
-          <p style="font-size: 0.8125rem; color: rgba(255,255,255,0.75); margin-bottom: 1rem;">
-            Subscribe for cleaning tips, updates, and exclusive offers.
-          </p>
-          <form onsubmit="event.preventDefault(); alert('Thank you for subscribing to Lumina newsletter!');"
-            style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <input type="email" placeholder="Your email address" required
-              style="padding: 0.75rem 1rem; border-radius: 6px; border: none; font-size: 0.875rem; outline: none;">
-            <button type="submit"
-              style="padding: 0.75rem 1rem; background-color: #20241D; color: #FFF; border-radius: 6px; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;">SUBSCRIBE</button>
-          </form>
         </div>
       </div>
 
@@ -924,58 +1464,12 @@
         style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8125rem; color: rgba(255,255,255,0.65);">
         <span>&copy; 2026 Lumina Cleaning Services. All rights reserved.</span>
         <div style="display: flex; gap: 1.5rem;">
-          <a href="#" style="color: rgba(255,255,255,0.65);">Privacy Policy</a>
-          <a href="#" style="color: rgba(255,255,255,0.65);">Terms of Service</a>
+          <a href="#" style="color: rgba(255,255,255,0.65); text-decoration: none;">Privacy Policy</a>
+          <a href="#" style="color: rgba(255,255,255,0.65); text-decoration: none;">Terms of Service</a>
         </div>
       </div>
     </div>
   </footer>
-
-  <!-- BOOKING MODAL -->
-  <div class="modal-backdrop" id="booking-modal">
-    <div class="modal-card">
-      <button class="modal-close" id="modal-close-btn" aria-label="Close modal">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M1 1L13 13M1 13L13 1" />
-        </svg>
-      </button>
-
-      <div style="text-align: center; margin-bottom: 0.75rem;">
-        <img src="assets/logo.png" alt="Lumina Cleaning Services"
-          style="height: 38px; width: auto; display: inline-block;">
-      </div>
-      <h3 class="modal-title" id="modal-title-text" style="margin-top: 0.25rem;">Book Lumina Service</h3>
-      <p class="modal-subtitle">Experience a spotless, serene environment. Select your preferred date.</p>
-
-      <form id="booking-form" onsubmit="event.preventDefault(); handleBookingSubmit();">
-        <div class="form-group">
-          <label class="form-label" for="client-name">Your Full Name</label>
-          <input type="text" id="client-name" class="form-input" placeholder="e.g. Sarah Jenkins" required>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="client-email">Email Address</label>
-          <input type="email" id="client-email" class="form-input" placeholder="sarah@example.com" required>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="service-type">Service Type</label>
-          <select id="service-type" class="form-select">
-            <option value="deep">Deep Cleaning</option>
-            <option value="home">Home Cleaning</option>
-            <option value="upholstery">Sofa & Upholstery</option>
-            <option value="move-in">Move-In Cleaning</option>
-            <option value="carpet">Carpet Cleaning</option>
-            <option value="bathroom">Bathroom Cleaning</option>
-            <option value="kitchen">Kitchen Cleaning</option>
-            <option value="office">Office Cleaning</option>
-          </select>
-        </div>
-
-        <button type="submit" class="btn-submit-modal">CONFIRM RESERVATION &rarr;</button>
-      </form>
-    </div>
-  </div>
 
   <!-- FLOATING WHATSAPP BUTTON -->
   <div class="whatsapp-float-widget">

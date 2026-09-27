@@ -206,7 +206,7 @@
       <!-- 4-CARD GRID -->
       <div class="book-cards-grid">
         <!-- Card 1 -->
-        <div class="book-card" onclick="openBookingModal('Deep Cleaning')">
+        <div class="book-card" onclick="openServiceDetailsModal('deep-cleaning')">
           <div class="book-card-img-wrap">
             <img src="assets/service_deep_cleaning.jpg" alt="Deep Cleaning" class="book-card-img" />
           </div>
@@ -215,7 +215,7 @@
               <h3 class="book-card-title">Deep Cleaning</h3>
               <p class="book-card-desc">Thorough cleaning for a spotless, refreshed space.</p>
             </div>
-            <button class="btn-circle-arrow" aria-label="Book Deep Cleaning">
+            <button class="btn-circle-arrow" aria-label="View Deep Cleaning Details" onclick="event.stopPropagation(); openServiceDetailsModal('deep-cleaning');">
               <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#354527" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round" />
@@ -225,7 +225,7 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="book-card" onclick="openBookingModal('Home Cleaning')">
+        <div class="book-card" onclick="openServiceDetailsModal('home-cleaning')">
           <div class="book-card-img-wrap">
             <img src="assets/service_home_cleaning.jpg" alt="Home Cleaning" class="book-card-img" />
           </div>
@@ -234,7 +234,7 @@
               <h3 class="book-card-title">Home Cleaning</h3>
               <p class="book-card-desc">Regular cleaning to keep your home fresh and tidy.</p>
             </div>
-            <button class="btn-circle-arrow" aria-label="Book Home Cleaning">
+            <button class="btn-circle-arrow" aria-label="View Home Cleaning Details" onclick="event.stopPropagation(); openServiceDetailsModal('home-cleaning');">
               <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#354527" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round" />
@@ -244,16 +244,16 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="book-card" onclick="openBookingModal('Sofa & Upholstery')">
+        <div class="book-card" onclick="openServiceDetailsModal('sofa-upholstery')">
           <div class="book-card-img-wrap">
             <img src="assets/service_sofa_upholstery.jpg" alt="Sofa & Upholstery" class="book-card-img" />
           </div>
           <div class="book-card-body">
             <div class="book-card-content">
-              <h3 class="book-card-title">Sofa & Upholstery</h3>
-              <p class="book-card-desc">Expert care for sofas, mattresses & fabrics.</p>
+              <h3 class="book-card-title">Sofa &amp; Upholstery</h3>
+              <p class="book-card-desc">Expert care for sofas, mattresses &amp; fabrics.</p>
             </div>
-            <button class="btn-circle-arrow" aria-label="Book Sofa & Upholstery">
+            <button class="btn-circle-arrow" aria-label="View Sofa & Upholstery Details" onclick="event.stopPropagation(); openServiceDetailsModal('sofa-upholstery');">
               <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#354527" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round" />
@@ -263,7 +263,7 @@
         </div>
 
         <!-- Card 4 -->
-        <div class="book-card" onclick="openBookingModal('Move-In Cleaning')">
+        <div class="book-card" onclick="openServiceDetailsModal('move-in-cleaning')">
           <div class="book-card-img-wrap">
             <img src="assets/service_move_in.jpg" alt="Move-In Cleaning" class="book-card-img" />
           </div>
@@ -272,7 +272,7 @@
               <h3 class="book-card-title">Move-In Cleaning</h3>
               <p class="book-card-desc">Move in with confidence to a perfectly clean home.</p>
             </div>
-            <button class="btn-circle-arrow" aria-label="Book Move-In Cleaning">
+            <button class="btn-circle-arrow" aria-label="View Move-In Cleaning Details" onclick="event.stopPropagation(); openServiceDetailsModal('move-in-cleaning');">
               <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#354527" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round" />
@@ -290,296 +290,7 @@
     </div>
   </section>
 
-  <!-- ==========================================
-       SECTION: DEEP CLEANING SERVICES (11 SERVICES)
-       ========================================== -->
-  <section id="deep-cleaning-list" class="deep-cleaning-section">
-    <div class="section-container">
-      <div class="section-header-center">
-        <span class="section-eyebrow">SPECIALIZED CARE</span>
-        <h2 class="section-title-main">Deep Cleaning Services</h2>
-        <p style="font-size: 0.9375rem; color: #646E5D; max-width: 560px; margin: 0.5rem auto 0 auto;">
-          Thorough deep-extraction, sanitisation, polishing, and technical care for homes and offices.
-        </p>
-        <div class="leaf-divider" style="margin-top: 0.8rem;">
-          <div class="leaf-divider-line"></div>
-          <svg class="leaf-divider-svg" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 16C8 10 16 4 28 4C28 4 22 10 18 14C14 18 10 18 4 16Z" stroke="#7A876E" stroke-width="1.8" fill="rgba(122, 135, 110, 0.2)" />
-            <path d="M12 12C16 10 22 10 28 4" stroke="#7A876E" stroke-width="1.5" stroke-linecap="round" />
-          </svg>
-          <div class="leaf-divider-line"></div>
-        </div>
-      </div>
 
-      <!-- 11 SERVICES 2-COLUMN GRID (SINGLE-COLUMN ON MOBILE) -->
-      <div class="deep-clean-grid">
-
-        <!-- 1. Carpet & Rug Cleaning -->
-        <div class="deep-clean-card">
-          <div>
-            <div class="deep-clean-header-row">
-              <h3 class="deep-clean-title">Carpet &amp; Rug Cleaning</h3>
-              <span class="deep-clean-discount-badge">-50%</span>
-            </div>
-            <p class="deep-clean-desc">Deep-extraction that lifts stains and odours.</p>
-          </div>
-          <div>
-            <div class="deep-clean-price-row">
-              <span class="deep-clean-price-current">AED 60</span>
-              <span class="deep-clean-price-old">AED 120</span>
-            </div>
-            <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Carpet & Rug Cleaning at AED 60!')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
-              </svg>
-              <span>BOOK ON WHATSAPP</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 2. Sofa & Upholstery -->
-        <div class="deep-clean-card">
-          <div>
-            <div class="deep-clean-header-row">
-              <h3 class="deep-clean-title">Sofa &amp; Upholstery</h3>
-              <span class="deep-clean-discount-badge">-50%</span>
-            </div>
-            <p class="deep-clean-desc">Fabric-safe deep shampoo — like new again.</p>
-          </div>
-          <div>
-            <div class="deep-clean-price-row">
-              <span class="deep-clean-price-current">AED 100</span>
-              <span class="deep-clean-price-old">AED 200</span>
-            </div>
-            <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Sofa & Upholstery cleaning at AED 100!')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
-              </svg>
-              <span>BOOK ON WHATSAPP</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 3. Mattress Deep Clean -->
-        <div class="deep-clean-card">
-          <div>
-            <div class="deep-clean-header-row">
-              <h3 class="deep-clean-title">Mattress Deep Clean</h3>
-              <span class="deep-clean-discount-badge">-50%</span>
-            </div>
-            <p class="deep-clean-desc">Dust-mite and allergen treatment, both sides.</p>
-          </div>
-          <div>
-            <div class="deep-clean-price-row">
-              <span class="deep-clean-price-current">AED 45</span>
-              <span class="deep-clean-price-old">AED 90</span>
-            </div>
-            <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Mattress Deep Clean at AED 45!')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
-              </svg>
-              <span>BOOK ON WHATSAPP</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 4. Curtains & Drapery -->
-        <div class="deep-clean-card">
-          <div>
-            <div class="deep-clean-header-row">
-              <h3 class="deep-clean-title">Curtains &amp; Drapery</h3>
-              <span class="deep-clean-discount-badge">-40%</span>
-            </div>
-            <p class="deep-clean-desc">On-site or off-site cleaning for all fabrics.</p>
-          </div>
-          <div>
-            <div class="deep-clean-price-row">
-              <span class="deep-clean-price-current">AED 90</span>
-              <span class="deep-clean-price-old">AED 150</span>
-            </div>
-            <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Curtains & Drapery cleaning at AED 90!')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
-              </svg>
-              <span>BOOK ON WHATSAPP</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 5. Window & Glass -->
-        <div class="deep-clean-card">
-          <div>
-            <div class="deep-clean-header-row">
-              <h3 class="deep-clean-title">Window &amp; Glass</h3>
-              <span class="deep-clean-discount-badge">-40%</span>
-            </div>
-            <p class="deep-clean-desc">Streak-free interior and reachable exterior glass.</p>
-          </div>
-          <div>
-            <div class="deep-clean-price-row">
-              <span class="deep-clean-price-current">AED 78</span>
-              <span class="deep-clean-price-old">AED 130</span>
-            </div>
-            <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Window & Glass cleaning at AED 78!')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
-              </svg>
-              <span>BOOK ON WHATSAPP</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 6. Floor & Marble Polishing -->
-        <div class="deep-clean-card">
-          <div>
-            <div class="deep-clean-header-row">
-              <h3 class="deep-clean-title">Floor &amp; Marble Polishing</h3>
-              <span class="deep-clean-discount-badge">-30%</span>
-            </div>
-            <p class="deep-clean-desc">Grinding, polishing and sealing for stone floors.</p>
-          </div>
-          <div>
-            <div class="deep-clean-price-row">
-              <span class="deep-clean-price-current">AED 196</span>
-              <span class="deep-clean-price-old">AED 280</span>
-            </div>
-            <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Floor & Marble Polishing at AED 196!')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
-              </svg>
-              <span>BOOK ON WHATSAPP</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 7. AC Duct Cleaning -->
-        <div class="deep-clean-card">
-          <div>
-            <div class="deep-clean-header-row">
-              <h3 class="deep-clean-title">AC Duct Cleaning</h3>
-              <span class="deep-clean-discount-badge">-40%</span>
-            </div>
-            <p class="deep-clean-desc">Cleaner air and a healthier, fresher home.</p>
-          </div>
-          <div>
-            <div class="deep-clean-price-row">
-              <span class="deep-clean-price-current">AED 150</span>
-              <span class="deep-clean-price-old">AED 250</span>
-            </div>
-            <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book AC Duct Cleaning at AED 150!')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
-              </svg>
-              <span>BOOK ON WHATSAPP</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 8. Water Tank Cleaning -->
-        <div class="deep-clean-card">
-          <div>
-            <div class="deep-clean-header-row">
-              <h3 class="deep-clean-title">Water Tank Cleaning</h3>
-              <span class="deep-clean-discount-badge">-25%</span>
-            </div>
-            <p class="deep-clean-desc">Drain, scrub, disinfect and certify.</p>
-          </div>
-          <div>
-            <div class="deep-clean-price-row">
-              <span class="deep-clean-price-current">AED 263</span>
-              <span class="deep-clean-price-old">AED 350</span>
-            </div>
-            <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Water Tank Cleaning at AED 263!')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
-              </svg>
-              <span>BOOK ON WHATSAPP</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 9. Disinfection & Sanitisation -->
-        <div class="deep-clean-card">
-          <div>
-            <div class="deep-clean-header-row">
-              <h3 class="deep-clean-title">Disinfection &amp; Sanitisation</h3>
-              <span class="deep-clean-discount-badge">-50%</span>
-            </div>
-            <p class="deep-clean-desc">Hospital-grade fogging for homes and offices.</p>
-          </div>
-          <div>
-            <div class="deep-clean-price-row">
-              <span class="deep-clean-price-current">AED 100</span>
-              <span class="deep-clean-price-old">AED 200</span>
-            </div>
-            <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Disinfection & Sanitisation at AED 100!')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
-              </svg>
-              <span>BOOK ON WHATSAPP</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 10. Pest Control -->
-        <div class="deep-clean-card">
-          <div>
-            <div class="deep-clean-header-row">
-              <h3 class="deep-clean-title">Pest Control</h3>
-              <span class="deep-clean-discount-badge">-30%</span>
-            </div>
-            <p class="deep-clean-desc">Safe, certified treatment for common pests.</p>
-          </div>
-          <div>
-            <div class="deep-clean-price-row">
-              <span class="deep-clean-price-current">AED 126</span>
-              <span class="deep-clean-price-old">AED 180</span>
-            </div>
-            <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like to book Pest Control at AED 126!')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
-              </svg>
-              <span>BOOK ON WHATSAPP</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 11. Post-Construction Clean -->
-        <div class="deep-clean-card">
-          <div>
-            <div class="deep-clean-header-row">
-              <h3 class="deep-clean-title">Post-Construction Clean</h3>
-              <span class="deep-clean-badge-quote">Free quote</span>
-            </div>
-            <p class="deep-clean-desc">Fine-dust removal and detailing after a build.</p>
-          </div>
-          <div>
-            <div class="deep-clean-price-row">
-              <span class="deep-clean-price-quote">Custom quote</span>
-            </div>
-            <button class="btn-deep-clean-wa" onclick="openWhatsAppChat('Hi Lumina Cleaning Services, I would like an enquiry & free quote for Post-Construction Clean!')">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.328-1.488C8.01 23.473 9.947 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.872 0-3.635-.494-5.17-1.356l-.37-.208-3.754.882.905-3.658-.228-.382C2.478 15.719 2 13.918 2 12 2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
-              </svg>
-              <span>ENQUIRE ON WHATSAPP</span>
-            </button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
 
   <!-- ==========================================
        SECTION: EVERY CORNER DESERVES ATTENTION
@@ -604,32 +315,32 @@
 
       <!-- 4-IMAGE CARDS GRID -->
       <div class="corner-cards-grid">
-        <!-- Item 1 -->
-        <div class="corner-item">
+        <!-- Item 1: Spotless Fixtures -->
+        <div class="corner-item" onclick="openCornerDetailModal('fixtures')" role="button" tabindex="0" aria-label="View Spotless Fixtures Details">
           <div class="corner-img-wrap">
             <img src="assets/detail_fixtures.jpg" alt="Spotless Fixtures" class="corner-img" />
           </div>
           <h4 class="corner-caption">Spotless Fixtures</h4>
         </div>
 
-        <!-- Item 2 -->
-        <div class="corner-item">
+        <!-- Item 2: Sparkling Surfaces -->
+        <div class="corner-item" onclick="openCornerDetailModal('surfaces')" role="button" tabindex="0" aria-label="View Sparkling Surfaces Details">
           <div class="corner-img-wrap">
             <img src="assets/detail_surfaces.jpg" alt="Sparkling Surfaces" class="corner-img" />
           </div>
           <h4 class="corner-caption">Sparkling Surfaces</h4>
         </div>
 
-        <!-- Item 3 -->
-        <div class="corner-item">
+        <!-- Item 3: Impeccable Floors -->
+        <div class="corner-item" onclick="openCornerDetailModal('floors')" role="button" tabindex="0" aria-label="View Impeccable Floors Details">
           <div class="corner-img-wrap">
             <img src="assets/detail_floors.jpg" alt="Impeccable Floors" class="corner-img" />
           </div>
           <h4 class="corner-caption">Impeccable Floors</h4>
         </div>
 
-        <!-- Item 4 -->
-        <div class="corner-item">
+        <!-- Item 4: Sanitized Bathrooms -->
+        <div class="corner-item" onclick="openCornerDetailModal('bathrooms')" role="button" tabindex="0" aria-label="View Sanitized Bathrooms Details">
           <div class="corner-img-wrap">
             <img src="assets/detail_bathrooms.jpg" alt="Sanitized Bathrooms" class="corner-img" />
           </div>
@@ -786,7 +497,7 @@
 
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <button class="btn-deal-whatsapp"
-              onclick="openWhatsAppChat('Hi Lumina, I would like to book today\'s Deal of the Day - Sofa & Upholstery for AED 100.')">
+              onclick="bookSofaCleaningWhatsApp()">
               <span>BOOK THIS DEAL ON WHATSAPP</span>
             </button>
             <a href="deal-of-the-day.html" class="btn-secondary-hero" style="padding: 0.85rem 1.6rem;">
@@ -881,7 +592,7 @@
        ========================================== -->
   <footer class="footer" style="background-color: #374728; color: #FFF; padding: 4rem 2.5rem 2rem 2.5rem;">
     <div style="max-width: 1280px; margin: 0 auto;">
-      <div style="display: grid; grid-template-columns: 2fr 1fr 1.25fr 1fr 2fr; gap: 2.5rem; margin-bottom: 3.5rem;">
+      <div class="footer-grid">
         <!-- Brand & Description -->
         <div>
           <a href="index.html" class="footer-logo" aria-label="Lumina Cleaning Services Home"
@@ -899,13 +610,13 @@
           <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.25rem;">Quick Links</h4>
           <ul
             style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.875rem; color: rgba(255,255,255,0.8);">
-            <li><a href="index.html" style="color: #FFF;">Home</a></li>
-            <li><a href="about.html" style="color: #FFF;">About Us</a></li>
-            <li><a href="services.html" style="color: #FFF;">Our Services</a></li>
-            <li><a href="deal-of-the-day.html" style="color: #FFF;">Deal of the Day</a></li>
-            <li><a href="why-lumina.html" style="color: #FFF;">Why Lumina</a></li>
-            <li><a href="blog.html" style="color: #FFF;">Blog</a></li>
-            <li><a href="contact.html" style="color: #FFF;">Contact Us</a></li>
+            <li><a href="index.html" style="color: #FFF; text-decoration: none;">Home</a></li>
+            <li><a href="about.html" style="color: #FFF; text-decoration: none;">About Us</a></li>
+            <li><a href="services.html" style="color: #FFF; text-decoration: none;">Our Services</a></li>
+            <li><a href="deal-of-the-day.html" style="color: #FFF; text-decoration: none;">Deal of the Day</a></li>
+            <li><a href="why-lumina.html" style="color: #FFF; text-decoration: none;">Why Lumina</a></li>
+            <li><a href="blog.html" style="color: #FFF; text-decoration: none;">Blog</a></li>
+            <li><a href="contact.html" style="color: #FFF; text-decoration: none;">Contact Us</a></li>
           </ul>
         </div>
 
@@ -914,11 +625,16 @@
           <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.25rem;">Our Services</h4>
           <ul
             style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.875rem; color: rgba(255,255,255,0.8);">
-            <li><a href="services.html" style="color: #FFF;">Residential Cleaning</a></li>
-            <li><a href="services.html" style="color: #FFF;">Deep Cleaning</a></li>
-            <li><a href="services.html" style="color: #FFF;">Move-In / Move-Out</a></li>
-            <li><a href="services.html" style="color: #FFF;">Office Cleaning</a></li>
-            <li><a href="services.html" style="color: #FFF;">Sofa & Upholstery</a></li>
+            <li><a href="services.html#regular-home-cleaning" style="color: #FFF; text-decoration: none;">Regular Home Cleaning</a></li>
+            <li><a href="services.html#residential-deep-clean" style="color: #FFF; text-decoration: none;">Residential Deep Clean</a></li>
+            <li><a href="services.html#kitchen-deep-clean" style="color: #FFF; text-decoration: none;">Kitchen Deep Clean</a></li>
+            <li><a href="services.html#bathroom-deep-clean" style="color: #FFF; text-decoration: none;">Bathroom Deep Clean</a></li>
+            <li><a href="services.html#move-in-move-out" style="color: #FFF; text-decoration: none;">Move-In / Move-Out</a></li>
+            <li><a href="services.html#spring-full-home-clean" style="color: #FFF; text-decoration: none;">Spring / Full Home Clean</a></li>
+            <li><a href="services.html#villa-garden-care" style="color: #FFF; text-decoration: none;">Villa &amp; Garden Care</a></li>
+            <li><a href="services.html#sofa-upholstery" style="color: #FFF; text-decoration: none;">Sofa &amp; Upholstery</a></li>
+            <li><a href="services.html#commercial" style="color: #FFF; text-decoration: none;">Commercial</a></li>
+            <li><a href="services.html#add-ons" style="color: #FFF; text-decoration: none;">Add-Ons</a></li>
           </ul>
         </div>
 
@@ -927,25 +643,10 @@
           <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.25rem;">Contact Us</h4>
           <ul
             style="list-style: none; display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.875rem; color: rgba(255,255,255,0.8);">
-            <li>📞 +971 58 647 7660</li>
-            <li>✉️ luminaclean.ae@gmail.com</li>
+            <li><a href="tel:+971586477660" style="color: #FFF; text-decoration: none;">📞 +971 58 647 7660</a></li>
+            <li><a href="mailto:luminaclean.ae@gmail.com" style="color: #FFF; text-decoration: none;">✉️ luminaclean.ae@gmail.com</a></li>
             <li>📍 All Areas · Dubai, UAE</li>
           </ul>
-        </div>
-
-        <!-- Newsletter -->
-        <div>
-          <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.25rem;">Newsletter</h4>
-          <p style="font-size: 0.8125rem; color: rgba(255,255,255,0.75); margin-bottom: 1rem;">
-            Subscribe for cleaning tips, updates, and exclusive offers.
-          </p>
-          <form onsubmit="event.preventDefault(); alert('Thank you for subscribing to Lumina newsletter!');"
-            style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <input type="email" placeholder="Your email address" required
-              style="padding: 0.75rem 1rem; border-radius: 6px; border: none; font-size: 0.875rem; outline: none;">
-            <button type="submit"
-              style="padding: 0.75rem 1rem; background-color: #20241D; color: #FFF; border-radius: 6px; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;">SUBSCRIBE</button>
-          </form>
         </div>
       </div>
 
@@ -953,58 +654,79 @@
         style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8125rem; color: rgba(255,255,255,0.65);">
         <span>&copy; 2026 Lumina Cleaning Services. All rights reserved.</span>
         <div style="display: flex; gap: 1.5rem;">
-          <a href="#" style="color: rgba(255,255,255,0.65);">Privacy Policy</a>
-          <a href="#" style="color: rgba(255,255,255,0.65);">Terms of Service</a>
+          <a href="#" style="color: rgba(255,255,255,0.65); text-decoration: none;">Privacy Policy</a>
+          <a href="#" style="color: rgba(255,255,255,0.65); text-decoration: none;">Terms of Service</a>
         </div>
       </div>
     </div>
   </footer>
 
   <!-- ==========================================
-       BOOKING MODAL DIALOG
+       EVERY CORNER DETAILS MODAL DIALOG
        ========================================== -->
-  <div class="modal-backdrop" id="booking-modal">
-    <div class="modal-card">
-      <button class="modal-close" id="modal-close-btn" aria-label="Close modal">
+  <div class="modal-backdrop" id="corner-details-modal">
+    <div class="modal-card" style="max-width: 660px; max-height: 88vh; overflow-y: auto; padding: 0;">
+      <div style="position: relative; height: 230px; width: 100%; overflow: hidden; border-radius: 20px 20px 0 0;">
+        <img id="corner-modal-img" src="assets/detail_fixtures.jpg" alt="Corner Detail" style="width: 100%; height: 100%; object-fit: cover;">
+        <button class="modal-close" onclick="closeCornerDetailModal();" aria-label="Close modal" style="position: absolute; top: 1rem; right: 1rem; background: rgba(32,36,29,0.75); color: #FFF; border: none; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; backdrop-filter: blur(4px);">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 1L13 13M1 13L13 1" />
+          </svg>
+        </button>
+      </div>
+
+      <div style="padding: 1.75rem 1.75rem 2rem 1.75rem;">
+        <div style="margin-bottom: 0.85rem; text-align: left;">
+          <span class="section-eyebrow" id="corner-modal-eyebrow" style="font-size: 0.75rem; letter-spacing: 0.08em; color: #374728;">EVERY CORNER DESERVES ATTENTION</span>
+          <h3 class="modal-title" id="corner-modal-title" style="margin-top: 0.2rem; text-align: left; font-size: 1.75rem; color: #20241D; font-family: var(--font-serif);">Corner Detail Title</h3>
+          <p class="modal-subtitle" id="corner-modal-lead" style="text-align: left; margin-top: 0.4rem; margin-bottom: 1rem; line-height: 1.55; color: #434B3D; font-size: 0.9375rem;">
+            Detailed description of cleaning process.
+          </p>
+        </div>
+
+        <div id="corner-modal-body"></div>
+
+        <div style="margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid #E2DCCF; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+          <a id="corner-modal-cta-link" href="services.html#residential-deep-clean" class="btn-secondary-hero" style="padding: 0.75rem 1.5rem; font-size: 0.75rem;">
+            BOOK SERVICE NOW &rarr;
+          </a>
+          <button type="button" onclick="closeCornerDetailModal();" style="padding: 0.75rem 1.6rem; background: #374728; color: #FFF; border: none; border-radius: 50px; font-weight: 700; font-size: 0.75rem; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;">
+            CLOSE
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       SERVICE DETAILS MODAL DIALOG (POPULAR SERVICES)
+       ========================================== -->
+  <div class="modal-backdrop" id="service-details-modal">
+    <div class="modal-card" style="max-width: 620px; max-height: 85vh; overflow-y: auto;">
+      <button class="modal-close" onclick="closeServiceDetailsModal();" aria-label="Close modal">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M1 1L13 13M1 13L13 1" />
         </svg>
       </button>
 
-      <div style="text-align: center; margin-bottom: 0.75rem;">
-        <img src="assets/logo.png" alt="Lumina Cleaning Services"
-          style="height: 38px; width: auto; display: inline-block;">
+      <div style="margin-bottom: 0.5rem; text-align: left;">
+        <span class="section-eyebrow" id="details-modal-eyebrow" style="font-size: 0.75rem; letter-spacing: 0.08em; color: #374728;">SERVICE DETAILS</span>
+        <h3 class="modal-title" id="details-modal-title" style="margin-top: 0.2rem; text-align: left; font-size: 1.6rem; color: #20241D;">Service Details</h3>
+        <p class="modal-subtitle" id="details-modal-desc" style="text-align: left; margin-bottom: 1rem; line-height: 1.5; color: #646E5D;">
+          Detailed information about this service.
+        </p>
       </div>
-      <h3 class="modal-title" id="modal-title-text" style="margin-top: 0.25rem;">Book Lumina Service</h3>
-      <p class="modal-subtitle">Experience a spotless, serene environment. Select your preferred date.</p>
 
-      <form id="booking-form" onsubmit="event.preventDefault(); handleBookingSubmit();">
-        <div class="form-group">
-          <label class="form-label" for="client-name">Your Full Name</label>
-          <input type="text" id="client-name" class="form-input" placeholder="e.g. Sarah Jenkins" required>
-        </div>
+      <div id="details-modal-body"></div>
 
-        <div class="form-group">
-          <label class="form-label" for="client-email">Email Address</label>
-          <input type="email" id="client-email" class="form-input" placeholder="sarah@example.com" required>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="service-type">Service Type</label>
-          <select id="service-type" class="form-select">
-            <option value="deep">Deep Cleaning</option>
-            <option value="home">Home Cleaning</option>
-            <option value="upholstery">Sofa & Upholstery</option>
-            <option value="move-in">Move-In Cleaning</option>
-            <option value="carpet">Carpet Cleaning</option>
-            <option value="bathroom">Bathroom Cleaning</option>
-            <option value="kitchen">Kitchen Cleaning</option>
-            <option value="office">Office Cleaning</option>
-          </select>
-        </div>
-
-        <button type="submit" class="btn-submit-modal">CONFIRM RESERVATION &rarr;</button>
-      </form>
+      <div style="margin-top: 1.75rem; padding-top: 1rem; border-top: 1px solid #E2DCCF; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+        <a href="services.html" class="btn-secondary-hero" style="padding: 0.7rem 1.4rem; font-size: 0.75rem;">
+          VIEW SERVICES PAGE &rarr;
+        </a>
+        <button type="button" onclick="closeServiceDetailsModal();" style="padding: 0.7rem 1.6rem; background: #374728; color: #FFF; border: none; border-radius: 50px; font-weight: 700; font-size: 0.75rem; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;">
+          CLOSE
+        </button>
+      </div>
     </div>
   </div>
 
