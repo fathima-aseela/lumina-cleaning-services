@@ -3564,3 +3564,148 @@ img {
   }
 }
 
+/* ==========================================================================
+   DEEP CLEANING SECTION (11 SPECIALIZED SERVICES)
+   ========================================================================== */
+.deep-cleaning-section {
+  padding: 4rem 0;
+  background-color: var(--bg-cream);
+}
+
+.deep-clean-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.deep-clean-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E8E0D2;
+  border-radius: 18px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.deep-clean-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(53, 69, 39, 0.08);
+  border-color: #C8BFB0;
+}
+
+.deep-clean-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.deep-clean-title {
+  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-dark, #20241D);
+  line-height: 1.3;
+}
+
+.deep-clean-discount-badge {
+  background-color: #374728;
+  color: #FFFFFF;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+}
+
+.deep-clean-badge-quote {
+  background-color: #E2F0DE;
+  color: #2D5A27;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.deep-clean-desc {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.9125rem;
+  color: #646E5D;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.deep-clean-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.deep-clean-price-current {
+  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #374728;
+  line-height: 1;
+}
+
+.deep-clean-price-quote {
+  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #374728;
+  line-height: 1;
+}
+
+.deep-clean-price-old {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.95rem;
+  color: #8C9683;
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.btn-deep-clean-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: #25D366;
+  color: #FFFFFF;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-deep-clean-wa:hover {
+  background-color: #1DA851;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+}
+
+@media (max-width: 768px) {
+  .deep-clean-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
