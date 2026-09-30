@@ -604,86 +604,79 @@ function toggleFullBlogPost() {
 
 /**
  * DYNAMIC LUMINA WHATSAPP MESSAGE GENERATOR
- * Formats precise, pre-filled WhatsApp messages based on customer selections.
+ * Formats clean, professional customer enquiry WhatsApp messages for Lumina Cleaning Services.
  *
- * General Template:
- * "Hi Lumina, I'm interested in [SERVICE NAME] for [SELECTED OPTIONS]. I'd like to book a cleaning. Please share the available options and pricing."
+ * Template:
+ * Hello Lumina Cleaning Services,
+ *
+ * I would like to enquire about your [SELECTED SERVICE] service.
+ *
+ * Customer Details:
+ * Name: [CUSTOMER NAME]
+ * Phone: [PHONE NUMBER]
+ * Location: [SELECTED LOCATION]
+ *
+ * Kindly share the available options and pricing.
+ *
+ * Thank you.
  */
 function generateLuminaWhatsAppMessage(serviceName, options = {}) {
-  let mainService = serviceName ? serviceName.trim() : 'Cleaning Service';
-  let optionString = '';
-  let additionalServicesText = '';
+  let mainService = serviceName ? serviceName.trim() : 'Cleaning';
 
-  // If options is a raw string (e.g. '2 BHK', 'L-Shaped', 'Office Cleaning', 'Fridge Interior')
   if (typeof options === 'string') {
-    const rawVal = options.trim();
-    if (rawVal.toLowerCase().includes('bhk') || rawVal.toLowerCase().includes('studio') || rawVal.toLowerCase().includes('villa')) {
-      options = { propertySize: rawVal };
-    } else if (rawVal.toLowerCase().includes('seater') || rawVal.toLowerCase().includes('shaped') || rawVal.toLowerCase().includes('recliner') || rawVal.toLowerCase().includes('sofa bed')) {
-      options = { sofaType: rawVal };
-    } else if (rawVal.toLowerCase().includes('add-on') || rawVal.toLowerCase().includes('fridge') || rawVal.toLowerCase().includes('oven') || rawVal.toLowerCase().includes('laundry') || rawVal.toLowerCase().includes('cabinet') || rawVal.toLowerCase().includes('balcony')) {
-      options = { addonName: rawVal.replace(/add-on/i, '').replace(/cleaning/i, '').trim() };
-    } else {
-      options = { rawOption: rawVal };
-    }
+    options = { rawOption: options.trim() };
   }
 
+  let name = options && options.name ? options.name.trim() : '';
+  let phone = options && options.phone ? options.phone.trim() : '';
+  let location = options && options.location ? options.location.trim() : '';
+
+  // Fallback to DOM elements if not explicitly in options
+  if (!name && typeof document !== 'undefined' && document.getElementById('wa-name')) {
+    name = document.getElementById('wa-name').value.trim();
+  }
+  if (!phone && typeof document !== 'undefined' && document.getElementById('wa-phone')) {
+    phone = document.getElementById('wa-phone').value.trim();
+  }
+  if (!location && typeof document !== 'undefined' && document.getElementById('wa-location')) {
+    location = document.getElementById('wa-location').value.trim();
+  }
+
+  // Handle sub-options from quick service card selections if passed
   if (options && typeof options === 'object') {
-    const { propertySize, sofaType, commercialType, addonName, additionalServices, rawOption } = options;
-
-    if (propertySize) {
-      const sizeFormatted = propertySize.toLowerCase().includes('property') ? propertySize : `${propertySize} property`;
-      const startsWithVowelSound = /^[aeiou]|^(L-)/i.test(sizeFormatted.trim());
-      const article = startsWithVowelSound ? 'an' : 'a';
-      optionString = `for ${article} ${sizeFormatted}`;
-    } else if (sofaType) {
-      const sofaFormatted = sofaType.toLowerCase().includes('sofa') ? sofaType : `${sofaType} sofa`;
-      const startsWithVowelSound = /^[aeiou]|^(L-)/i.test(sofaFormatted.trim());
-      const article = startsWithVowelSound ? 'an' : 'a';
-      optionString = `for ${article} ${sofaFormatted}`;
-    } else if (commercialType) {
-      optionString = `for ${commercialType}`;
-    } else if (addonName) {
-      const cleanAddonName = addonName.replace(/add-on/i, '').replace(/cleaning/i, '').trim();
-      optionString = `the ${cleanAddonName} cleaning add-on`;
-    } else if (rawOption) {
-      if (rawOption.startsWith('for ') || rawOption.startsWith('the ')) {
-        optionString = rawOption;
-      } else {
-        optionString = `for ${rawOption}`;
-      }
-    }
-
-    if (additionalServices && Array.isArray(additionalServices) && additionalServices.length > 0) {
-      const validAddons = additionalServices.filter(Boolean);
-      if (validAddons.length === 1) {
-        additionalServicesText = `. I would also like ${validAddons[0]}`;
-      } else if (validAddons.length > 1) {
-        const lastItem = validAddons.pop();
-        additionalServicesText = `. I would also like ${validAddons.join(', ')} and ${lastItem}`;
+    const extra = options.propertySize || options.sofaType || options.commercialType || options.addonName || options.rawOption;
+    if (extra && typeof extra === 'string' && !mainService.toLowerCase().includes(extra.toLowerCase())) {
+      const cleanExtra = extra.replace(/add-on/i, '').replace(/cleaning/i, '').trim();
+      if (cleanExtra) {
+        mainService = `${mainService} (${cleanExtra})`;
       }
     }
   }
 
-  if (options && options.addonName) {
-    return `Hi Lumina, I'm interested in ${optionString}${additionalServicesText}. I'd like to book a cleaning. Please share the available options and pricing.`;
+  // Clean trailing "service" or "services" to prevent duplicate words (e.g. "Deep Cleaning service service")
+  let cleanService = mainService.replace(/\s+services?$/i, '').trim();
+  if (!cleanService) {
+    cleanService = 'Cleaning';
   }
 
-  if (optionString) {
-    if (optionString.startsWith('for ') || optionString.startsWith('the ')) {
-      return `Hi Lumina, I'm interested in ${mainService} ${optionString}${additionalServicesText}. I'd like to book a cleaning. Please share the available options and pricing.`;
-    } else {
-      return `Hi Lumina, I'm interested in ${mainService} for ${optionString}${additionalServicesText}. I'd like to book a cleaning. Please share the available options and pricing.`;
-    }
+  let message = `Hello Lumina Cleaning Services,\n\nI would like to enquire about your ${cleanService} service.`;
+
+  if (name || phone || location) {
+    message += `\n\nCustomer Details:`;
+    if (name) message += `\nName: ${name}`;
+    if (phone) message += `\nPhone: ${phone}`;
+    if (location) message += `\nLocation: ${location}`;
   }
 
-  return `Hi Lumina, I'm interested in ${mainService}${additionalServicesText}. I'd like to book a cleaning. Please share the available options and pricing.`;
+  message += `\n\nKindly share the available options and pricing.\n\nThank you.`;
+
+  return message;
 }
 
 // Open Direct WhatsApp Chat
 function openWhatsAppChat(customText) {
   const phone = '971586477660';
-  const defaultText = "Hi Lumina, I'm interested in booking a cleaning service. Please share the available options and pricing.";
+  const defaultText = `Hello Lumina Cleaning Services,\n\nI would like to enquire about your cleaning services.\n\nKindly share the available options and pricing.\n\nThank you.`;
   const textToSend = customText ? customText : defaultText;
   const message = encodeURIComponent(textToSend);
   const waUrl = `https://wa.me/${phone}?text=${message}`;
@@ -697,7 +690,7 @@ function handleWhatsAppEnquirySubmit() {
   const location = document.getElementById('wa-location') ? document.getElementById('wa-location').value : 'Dubai, UAE';
   const service = document.getElementById('wa-service') ? document.getElementById('wa-service').value : 'Deep Cleaning';
 
-  const msg = generateLuminaWhatsAppMessage(service, { propertySize: location, additionalServices: name ? [`Enquiry from ${name} (${phone})`] : [] });
+  const msg = generateLuminaWhatsAppMessage(service, { name, phone, location });
   openWhatsAppChat(msg);
 }
 
