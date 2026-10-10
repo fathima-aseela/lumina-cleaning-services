@@ -268,7 +268,7 @@ img {
   min-height: calc(100vh - 110px);
   display: flex;
   align-items: center;
-  background-image: url('assets/hero_living_room.jpg');
+  background-image: url('assets/hero_living_room.webp');
   background-size: cover;
   background-position: center 30%;
   overflow: hidden;

@@ -281,7 +281,7 @@ function openCornerDetailModal(cornerKey) {
 
   const dataMap = {
     'fixtures': {
-      image: 'assets/detail_fixtures.jpg',
+      image: 'assets/detail_fixtures.webp',
       eyebrow: 'PRECISION HARDWARE DETAILING',
       title: 'Spotless Fixtures',
       lead: 'Technical precision detailing of taps, faucets, light fittings, handles, metallic hardware, and overhead lamps to remove lime scale, tarnish, and water spots, restoring original shine and brilliance.',
@@ -303,7 +303,7 @@ function openCornerDetailModal(cornerKey) {
       ctaService: 'Residential Deep Clean'
     },
     'surfaces': {
-      image: 'assets/detail_surfaces.jpg',
+      image: 'assets/detail_surfaces.webp',
       eyebrow: 'MATERIAL-SAFE SURFACE CARE',
       title: 'Sparkling Surfaces',
       lead: 'Comprehensive deep cleaning, dusting, micro-wiping, and sanitisation of all horizontal and vertical architectural surfaces, stone counters, wooden desks, and glass trim.',
@@ -325,7 +325,7 @@ function openCornerDetailModal(cornerKey) {
       ctaService: 'Regular Home Cleaning'
     },
     'floors': {
-      image: 'assets/detail_floors.jpg',
+      image: 'assets/detail_floors.webp',
       eyebrow: 'DEEP FLOOR SCRUB & POLISH',
       title: 'Impeccable Floors',
       lead: 'Intensive vacuuming, deep tile scrub, grout restoration, and specialist floor treatments designed to lift deep-seated dirt and revive floor brilliance.',
@@ -346,7 +346,7 @@ function openCornerDetailModal(cornerKey) {
       ctaService: 'Residential Deep Clean'
     },
     'bathrooms': {
-      image: 'assets/detail_bathrooms.jpg',
+      image: 'assets/detail_bathrooms.webp',
       eyebrow: 'ANTIBACTERIAL SANITISATION',
       title: 'Sanitized Bathrooms',
       lead: 'Deep antibacterial steam sanitisation, limescale descaling, mold removal, and glass polishing to transform your bathroom into a pristine, hygienic sanctuary.',
