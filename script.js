@@ -687,7 +687,7 @@ function openWhatsAppChat(customText) {
 function handleWhatsAppEnquirySubmit() {
   const name = document.getElementById('wa-name') ? document.getElementById('wa-name').value.trim() : '';
   const phone = document.getElementById('wa-phone') ? document.getElementById('wa-phone').value.trim() : '';
-  const location = document.getElementById('wa-location') ? document.getElementById('wa-location').value : 'Dubai';
+  const location = document.getElementById('wa-location') ? document.getElementById('wa-location').value : 'UAE';
   const service = document.getElementById('wa-service') ? document.getElementById('wa-service').value : 'Deep Cleaning';
 
   const msg = generateLuminaWhatsAppMessage(service, { name, phone, location });
